@@ -27,6 +27,8 @@
 			
 			//Pages
 			'app.pages',
+			//Member
+			'app.member',
             // Sample
             'app.sample'
         ]);
