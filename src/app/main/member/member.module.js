@@ -17,6 +17,9 @@
         msNavigationServiceProvider.saveItem('member', {
             title : 'Member',
             icon  : 'icon-account-multiple',
+			hidden: function(){
+				return false;
+			},
             weight: 2
         });
         msNavigationServiceProvider.saveItem('member.forms', {

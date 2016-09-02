@@ -7,9 +7,15 @@
         .controller('FormsController', FormsController);
 
     /** @ngInject */
-    function FormsController($mdDialog)
+    var educations = [
+		{id:"0"},
+	];
+	function FormsController($mdDialog)
     {
         var vm = this;
+		
+		vm.educations = educations;
+		
 
         // Data
         vm.horizontalStepper = {
@@ -39,6 +45,9 @@
 
         // Methods
         vm.sendForm = sendForm;
+		vm.addEducation= addEducation;
+		vm.removeEducation= removeEducation;
+		vm.submitEducation = submitEducation;
         vm.showDataDialog = showDataDialog;
         vm.submitHorizontalStepper = submitHorizontalStepper;
         vm.submitVerticalStepper = submitVerticalStepper;
@@ -120,13 +129,29 @@
             });
         }
 
+		function addEducation()
+		{
+			var newEducationID = vm.educations.length;
+			vm.educations.push({id:newEducationID});
+			console.log("Add education"+newEducationID);
+			
+		}
+		function removeEducation()
+		{
+			vm.educations.pop();
+			
+		}
+		function submitEducation(){
+			console.log(vm.formWizard.educations);
+		}
+		
         /**
          * Send form
          */
         function sendForm(ev)
         {
             // You can do an API call here to send the form to your server
-
+			console.log("send form");
             // Show the sent data.. you can delete this safely.
             $mdDialog.show({
                 controller         : function ($scope, $mdDialog, formWizardData)
