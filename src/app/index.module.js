@@ -29,6 +29,9 @@
 			'app.pages',
 			//Member
 			'app.member',
+			
+			//Management
+			'app.management',
             // Sample
             'app.sample'
         ]);

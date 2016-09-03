@@ -25,7 +25,10 @@
         msNavigationServiceProvider.saveItem('member.forms', {
             title: 'Forms',
             icon : 'icon-window-restore',
-            state: 'app.member_forms'
+            state: 'app.member_forms',
+			hidden: function(){
+				return false;
+			},
         });
 
      
