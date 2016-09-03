@@ -169,23 +169,23 @@
                                <div layout="column" ng-repeat= "education in vm.educations.list track by $index"  layout-gt-xs="row" flex>
                                     <md-input-container flex="300" flex-gt-xs="100">
                                         <input type="text" name="institute" ng-model="vm.formWizard.educations[$index].institute"
-                                               placeholder="Institute">
+                                               placeholder="Institute" required>
 
                                     </md-input-container>
 
                                     <md-input-container flex="300" flex-gt-xs="30">
                                         <input type="year" name="startyear" ng-model="vm.formWizard.educations[$index].startyear"
-                                               placeholder="Start Year">
+                                               placeholder="Start Year" required>
                                        
                                     </md-input-container>
 									 <md-input-container flex="300" flex-gt-xs="30">
                                         <input type="year" name="endyear" ng-model="vm.formWizard.educations[$index].endyear"
-                                               placeholder="End Year">
+                                               placeholder="End Year" required>
                                                                                      
                                     </md-input-container>
 									<md-input-container flex="300" flex-gt-xs="60">
                                         <input type="text" name="degree" ng-model="vm.formWizard.educations[$index].degree"
-                                               placeholder="Degree">
+                                               placeholder="Degree" >
 
                                     </md-input-container>
 									<md-input-container flex="300" flex-gt-xs="60">
@@ -233,28 +233,28 @@
                                <div layout="column" ng-repeat= "job in vm.jobs.list track by $index" layout-gt-xs="row" flex>
                                     <md-input-container flex="300" flex-gt-xs="70">
                                         <input type="text" name="company" ng-model="vm.formWizard.jobs[$index].company"
-                                               placeholder="Company">
+                                               placeholder="Company" required>
 
                                     </md-input-container>
 
                                     <md-input-container flex="300" flex-gt-xs="30">
-                                        <input type="year" name="startyear" ng-model="vm.formWizard.jobs[$index].startyear"
-                                               placeholder="Start Year">
+                                        <input type="month" name="startyear" ng-model="vm.formWizard.jobs[$index].startyear"
+                                               placeholder="Start Year" required>
                                        
                                     </md-input-container>
 									 <md-input-container flex="300" flex-gt-xs="30">
-                                        <input type="year" name="endyear" ng-model="vm.formWizard.jobs[$index].endyear"
+                                        <input type="month" name="endyear" ng-model="vm.formWizard.jobs[$index].endyear"
                                                placeholder="End Year">
                                                                                      
                                     </md-input-container>
 									<md-input-container flex="300" flex-gt-xs="60">
                                         <input type="text" name="position" ng-model="vm.formWizard.jobs[$index].position"
-                                               placeholder="Position">
+                                               placeholder="Position" required>
 
                                     </md-input-container>
 									<md-input-container flex="300" flex-gt-xs="60">
                                         <input type="text" name="duty" ng-model="vm.formWizard.jobs[$index].duty"
-                                               placeholder="Main Duties">
+                                               placeholder="Main Duties" >
 
                                     </md-input-container>
 									<md-input-container flex="300" flex-gt-xs="40">
@@ -281,7 +281,7 @@
                             <span class="ms-form-wizard-step-label">
                                 <span class="ms-form-wizard-step-number md-accent-bg"
                                       ng-if="wizardStep4.$invalid">4</span>
-                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep3.$valid">
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep4.$valid">
                                     <i class="icon-check s16"></i>
                                 </span>
                                 <span class="ms-form-wizard-step-text">Project Record</span>
@@ -292,7 +292,7 @@
                                <div layout="column" ng-repeat= "project in vm.projects.list track by $index" layout-gt-xs="row" flex>
                                     <md-input-container flex="300" flex-gt-xs="70">
                                         <input type="text" name="name" ng-model="vm.formWizard.projects[$index].name"
-                                               placeholder="Project name">
+                                               placeholder="Project name" required>
 
                                     </md-input-container>
 									<md-input-container flex="300" flex-gt-xs="40">
@@ -339,7 +339,7 @@
                             <span class="ms-form-wizard-step-label">
                                 <span class="ms-form-wizard-step-number md-accent-bg"
                                       ng-if="wizardStep5.$invalid">5</span>
-                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep4.$valid">
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep5.$valid">
                                     <i class="icon-check s16"></i>
                                 </span>
                                 <span class="ms-form-wizard-step-text">Training Record</span>
@@ -350,7 +350,7 @@
                                <div layout="column" ng-repeat= "training in vm.trainings.list track by $index" layout-gt-xs="row" flex>
                                     <md-input-container flex="300" flex-gt-xs="70">
                                         <input type="text" name="name" ng-model="vm.formWizard.trainings[$index].name"
-                                               placeholder="Project name">
+                                               placeholder="Project name" required>
 
                                     </md-input-container>
 									<md-input-container flex="300" flex-gt-xs="40">
@@ -368,7 +368,7 @@
                                     </md-input-container>
 									 <md-input-container flex="300" flex-gt-xs="30">
                                         <input type="text" name="period" ng-model="vm.formWizard.trainings[$index].period"
-                                               placeholder="Period">
+                                               placeholder="Period" required>
                                                                                      
                                     </md-input-container>
 									<md-input-container flex="300" flex-gt-xs="60">
@@ -398,7 +398,7 @@
                             <span class="ms-form-wizard-step-label">
                                 <span class="ms-form-wizard-step-number md-accent-bg"
                                       ng-if="wizardStep6.$invalid">6</span>
-                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep4.$valid">
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep6.$valid">
                                     <i class="icon-check s16"></i>
                                 </span>
                                 <span class="ms-form-wizard-step-text">Skill Record</span>
@@ -409,15 +409,15 @@
                                <div layout="column" ng-repeat= "skill in vm.skills.list track by $index" layout-gt-xs="row" flex>
                                     <md-input-container flex="300" flex-gt-xs="40">
 										<label>Skill Type</label>
-										<md-select ng-model="vm.formWizard.skills[$index].type">
+										<md-select ng-model="vm.formWizard.skills[$index].type" required>
 											<md-option ng-repeat="type in vm.skills.types" value="{{type.value}}">
 												{{type.name}}
 											</md-option>
 										</md-select>
-									</md-input-container>
+									</md-input-container >
 									<md-input-container flex="300" flex-gt-xs="70">
                                         <input type="text" name="description" ng-model="vm.formWizard.skills[$index].description"
-                                               placeholder="Description">
+                                               placeholder="Description" required>
 
                                     </md-input-container>
 									<md-input-container flex="300" flex-gt-xs="40">
@@ -461,7 +461,7 @@
                             <span class="ms-form-wizard-step-label">
                                 <span class="ms-form-wizard-step-number md-accent-bg"
                                       ng-if="wizardStep7.$invalid">7</span>
-                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep4.$valid">
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep7.$valid">
                                     <i class="icon-check s16"></i>
                                 </span>
                                 <span class="ms-form-wizard-step-text">Performance Record</span>
@@ -472,12 +472,12 @@
                                <div layout="column" ng-repeat= "performance in vm.performanceRecords.list track by $index" layout-gt-xs="row" flex>
                                      <md-input-container flex="300" flex-gt-xs="30">
                                         <input type="year" name="year" ng-model="vm.formWizard.performanceRecords[$index].year"
-                                               placeholder="Year">
+                                               placeholder="Year" required>
                                                                                      
                                     </md-input-container>
 									<md-input-container flex="300" flex-gt-xs="70">
                                         <input type="text" name="position" ng-model="vm.formWizard.performanceRecords[$index].position"
-                                               placeholder="Description">
+                                               placeholder="Description" required>
 
                                     </md-input-container>
 									<md-input-container flex="300" flex-gt-xs="40">
