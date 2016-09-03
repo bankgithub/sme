@@ -166,7 +166,7 @@
 
                         <md-tab-body>
                             <form name="wizardStep2" ms-form-wizard-form novalidate>
-                               <div layout="column" ng-repeat= "education in vm.educations track by $index"  layout-gt-xs="row" flex>
+                               <div layout="column" ng-repeat= "education in vm.educations.list track by $index"  layout-gt-xs="row" flex>
                                     <md-input-container flex="300" flex-gt-xs="100">
                                         <input type="text" name="institute" ng-model="vm.formWizard.educations[$index].institute"
                                                placeholder="Institute">
@@ -201,11 +201,11 @@
                                 </div>
 								
                             </form>
-							 <md-button class="md-raised md-accent" ng-click="vm.addEducation()">    
+							 <md-button class="md-raised md-accent" ng-click="vm.educations.addEducation()">    
 
 								Add Education
 							</md-button>
-							 <md-button class="md-raised md-warn" ng-click="vm.removeEducation()">    
+							 <md-button class="md-raised md-warn" ng-click="vm.educations.removeEducation()">    
 
 								Remove Education
 							</md-button>
@@ -230,7 +230,7 @@
                         <md-tab-body>
 						
 						  <form name="wizardStep3" ms-form-wizard-form novalidate>
-                               <div layout="column" ng-repeat= "job in vm.jobs track by $index" layout-gt-xs="row" flex>
+                               <div layout="column" ng-repeat= "job in vm.jobs.list track by $index" layout-gt-xs="row" flex>
                                     <md-input-container flex="300" flex-gt-xs="70">
                                         <input type="text" name="company" ng-model="vm.formWizard.jobs[$index].company"
                                                placeholder="Company">
@@ -266,11 +266,11 @@
                                 </div>
 								
                             </form>
-                          <md-button class="md-raised md-accent" ng-click="vm.addJob()">    
+                          <md-button class="md-raised md-accent" ng-click="vm.jobs.addJob()">    
 
 								Add Job
 							</md-button>
-							 <md-button class="md-raised md-warn" ng-click="vm.removeJob()">    
+							 <md-button class="md-raised md-warn" ng-click="vm.jobs.removeJob()">    
 
 								Remove Job
 							</md-button>
@@ -289,7 +289,7 @@
                         </md-tab-label>
                         <md-tab-body>
                           <form name="wizardStep4" ms-form-wizard-form novalidate>
-                               <div layout="column" ng-repeat= "project in vm.projects track by $index" layout-gt-xs="row" flex>
+                               <div layout="column" ng-repeat= "project in vm.projects.list track by $index" layout-gt-xs="row" flex>
                                     <md-input-container flex="300" flex-gt-xs="70">
                                         <input type="text" name="name" ng-model="vm.formWizard.projects[$index].name"
                                                placeholder="Project name">
@@ -298,7 +298,7 @@
 									<md-input-container flex="300" flex-gt-xs="40">
 										<label>Function</label>
 										<md-select ng-model="vm.formWizard.projects[$index].function">
-											<md-option ng-repeat="function in vm.projectFunctions" value="{{function.value}}">
+											<md-option ng-repeat="function in vm.projects.projectFunctions" value="{{function.value}}">
 												{{function.name}}
 											</md-option>
 										</md-select>
@@ -323,7 +323,7 @@
                                 </div>
 								
                             </form>
-                          <md-button class="md-raised md-accent" ng-click="vm.addProject()">    
+                          <md-button class="md-raised md-accent" ng-click="vm.projects.addProject()">    
 
 								Add Project
 							</md-button>
@@ -347,7 +347,7 @@
                         </md-tab-label>
                         <md-tab-body>
                           <form name="wizardStep5" ms-form-wizard-form novalidate>
-                               <div layout="column" ng-repeat= "training in vm.trainings track by $index" layout-gt-xs="row" flex>
+                               <div layout="column" ng-repeat= "training in vm.trainings.list track by $index" layout-gt-xs="row" flex>
                                     <md-input-container flex="300" flex-gt-xs="70">
                                         <input type="text" name="name" ng-model="vm.formWizard.trainings[$index].name"
                                                placeholder="Project name">
@@ -356,7 +356,7 @@
 									<md-input-container flex="300" flex-gt-xs="40">
 										<label>Result</label>
 										<md-select ng-model="vm.formWizard.trainings[$index].result">
-											<md-option ng-repeat="result in vm.trainingResults" value="{{result.value}}">
+											<md-option ng-repeat="result in vm.trainings.trainingResults" value="{{result.value}}">
 												{{result.name}}
 											</md-option>
 										</md-select>
@@ -381,16 +381,140 @@
                                 </div>
 								
                             </form>
-                          <md-button class="md-raised md-accent" ng-click="vm.addTraining()">    
+                          <md-button class="md-raised md-accent" ng-click="vm.trainings.addTraining()">    
 
 								Add Training
 							</md-button>
-							 <md-button class="md-raised md-warn" ng-click="vm.removeTraining()">    
+							 <md-button class="md-raised md-warn" ng-click="vm.trainings.removeTraining()">    
 
 								Remove Training
 							</md-button>
                         </md-tab-body>
                     </md-tab>
+					
+					
+					<md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid"-->>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep6.$invalid">6</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep4.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text">Skill Record</span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                          <form name="wizardStep6" ms-form-wizard-form novalidate>
+                               <div layout="column" ng-repeat= "skill in vm.skills.list track by $index" layout-gt-xs="row" flex>
+                                    <md-input-container flex="300" flex-gt-xs="40">
+										<label>Skill Type</label>
+										<md-select ng-model="vm.formWizard.skills[$index].type">
+											<md-option ng-repeat="type in vm.skills.types" value="{{type.value}}">
+												{{type.name}}
+											</md-option>
+										</md-select>
+									</md-input-container>
+									<md-input-container flex="300" flex-gt-xs="70">
+                                        <input type="text" name="description" ng-model="vm.formWizard.skills[$index].description"
+                                               placeholder="Description">
+
+                                    </md-input-container>
+									<md-input-container flex="300" flex-gt-xs="40">
+										<label>Level</label>
+										<md-select ng-model="vm.formWizard.skills[$index].level">
+											<md-option ng-repeat="level in vm.skills.levels" value="{{level.value}}">
+												{{level.name}}
+											</md-option>
+										</md-select>
+									</md-input-container>
+                                   
+									 <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="date" name="assessmentDate" ng-model="vm.formWizard.skills[$index].assessmentDate"
+                                               placeholder="Assessment Date">
+                                                                                     
+                                    </md-input-container>
+									<md-input-container flex="300" flex-gt-xs="60">
+                                        <input type="text" name="mentor" ng-model="vm.formWizard.skills[$index].mentor"
+                                               placeholder="Mentor">
+                                    </md-input-container>
+									
+									
+                                </div>
+								
+                            </form>
+                          <md-button class="md-raised md-accent" ng-click="vm.skills.addSkill()">    
+
+								Add Skill
+							</md-button>
+							 <md-button class="md-raised md-warn" ng-click="vm.skills.removeSkill()">    
+
+								Remove Skill
+							</md-button>
+                        </md-tab-body>
+                    </md-tab>
+					
+					
+					
+					<md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid"-->>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep7.$invalid">7</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep4.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text">Performance Record</span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                          <form name="wizardStep7" ms-form-wizard-form novalidate>
+                               <div layout="column" ng-repeat= "performance in vm.performanceRecords.list track by $index" layout-gt-xs="row" flex>
+                                     <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="year" name="year" ng-model="vm.formWizard.performanceRecords[$index].year"
+                                               placeholder="Year">
+                                                                                     
+                                    </md-input-container>
+									<md-input-container flex="300" flex-gt-xs="70">
+                                        <input type="text" name="position" ng-model="vm.formWizard.performanceRecords[$index].position"
+                                               placeholder="Description">
+
+                                    </md-input-container>
+									<md-input-container flex="300" flex-gt-xs="40">
+										<label>Score</label>
+										<md-select ng-model="vm.formWizard.performanceRecords[$index].level">
+											<md-option ng-repeat="level in vm.performanceRecords.levels" value="{{level.value}}">
+												{{level.name}}
+											</md-option>
+										</md-select>
+									</md-input-container>
+                                   
+									<md-input-container flex="300" flex-gt-xs="70">
+                                        <input type="text" name="feedback" ng-model="vm.formWizard.performanceRecords[$index].feedback"
+                                               placeholder="Feedback">
+
+                                    </md-input-container>
+									<md-input-container flex="300" flex-gt-xs="60">
+                                        <input type="text" name="evaluator" ng-model="vm.formWizard.performanceRecords[$index].evaluator"
+                                               placeholder="Evaluator">
+                                    </md-input-container>
+									
+									
+                                </div>
+								
+                            </form>
+                          <md-button class="md-raised md-accent" ng-click="vm.performanceRecords.addPerformance()">    
+
+								Add Record
+							</md-button>
+							 <md-button class="md-raised md-warn" ng-click="vm.performanceRecords.removePerformance()">    
+
+								Remove Record
+							</md-button>
+                        </md-tab-body>
+                    </md-tab>
+					
+					
                 </md-tabs>
 
                 <div class="navigation" flex layout="row" layout-align="center center">

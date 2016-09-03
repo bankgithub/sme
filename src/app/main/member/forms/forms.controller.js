@@ -7,28 +7,125 @@
         .controller('FormsController', FormsController);
 
     /** @ngInject */
-    var educations = [
-		{id:"0"},
-	];
-	 var jobs = [
-		{id:"0"},
-	];
-	 var trainings = [
-		{id:"0"},
-	];
-	var trainingResults = [
+    var educations = {
+		list: [{id:"0"},],
+		addEducation:function ()
+		{
+			var newEducationID = this.list.length;
+			this.list.push({id:newEducationID});
+			console.log("Add education"+newEducationID);
+			
+		},		
+		removeEducation:function()
+		{
+			this.list.pop();
+		},
+	};
+	 var jobs = {
+		list:[{id:"0"}],
+		addJob: function ()
+		{
+			var newJobID = this.list.length;
+			this.list.push({id:newJobID});
+
+		},
+		removeJob: function ()
+		{
+			this.list.pop();	
+		},
+		
+	};
+	 var trainings = {
+		list: [{id:"0"},],
+		trainingResults: [
 			{name:"Project improved", value:"1"},
 			{name:"Job improved", value:"2"},
 			{name:"Not improved", value:"3"},
-		];
-	var projectFunctions = [
+		],
+		addTraining: function ()
+		{
+			var id = this.list.length;
+			this.list.push({id:id});
+		},
+		removeTraining:function ()
+		{
+			this.list.pop();
+		},
+		
+	};
+	
+	
+	 var projects = {
+		list: [{id:"0"},],	
+		projectFunctions : [
 			{name:"Leader", value:"1"},
 			{name:"Main supporter", value:"2"},
 			{name:"Supporter", value:"3"},
-		];
-	 var projects = [	
-		{id:"0"},	
-	];
+		],
+		addProject: function ()
+			{
+				var newProjectID = this.list.length;
+				this.list.push({id:newProjectID});
+	
+			},
+		removeProject: function ()
+		{
+			this.list.pop();
+			
+		},
+	};
+	
+	 var skills = {
+		list: [{id:"0"},],	
+		levels : [
+			{name:"Excellent", value:"5"},
+			{name:"Good", value:"4"},
+			{name:"Fair", value:"3"},
+			{name:"Poor", value:"2"},
+			{name:"Very poor", value:"1"},
+		],
+		types : [
+			{name:"Basic Work", value:"1"},
+			{name:"Management", value:"2"},
+			{name:"Technical Skill", value:"3"},
+			{name:"Monitoring Skill", value:"4"},
+			{name:"Improvement SKll", value:"5"},
+		],
+		addSkill: function ()
+			{
+				var newId = this.list.length;
+				this.list.push({id:newId});
+	
+			},
+		removeSkill: function ()
+		{
+			this.list.pop();	
+		},
+		
+	};
+	
+	var performanceRecords = {
+		list: [{id:"0"},],	
+		levels : [
+			{name:"Excellent", value:"5"},
+			{name:"Good", value:"4"},
+			{name:"Fair", value:"3"},
+			{name:"Poor", value:"2"},
+			{name:"Very poor", value:"1"},
+		],
+		
+		addPerformance: function ()
+			{
+				var newId = this.list.length;
+				this.list.push({id:newId});
+	
+			},
+		removePerformance: function ()
+		{
+			this.list.pop();	
+		},
+		
+	};
 	function FormsController($mdDialog)
     {
         var vm = this;
@@ -36,9 +133,9 @@
 		vm.educations = educations;
 		vm.jobs = jobs;
 		vm.projects = projects;
-		vm.projectFunctions = projectFunctions;
-		vm.trainingResults = trainingResults;
 		vm.trainings = trainings;
+		vm.skills = skills;
+		vm.performanceRecords = performanceRecords;
 
         // Data
         vm.horizontalStepper = {
@@ -68,19 +165,7 @@
 
         // Methods
         vm.sendForm = sendForm;
-		
-		vm.addEducation= addEducation;
-		vm.removeEducation= removeEducation;
-		
-		vm.addJob= addJob;
-		vm.removeJob= removeJob;
-		
-		vm.addProject = addProject;
-		vm.removeProject = removeProject;
-		
-		vm.addTraining = addTraining;
-		vm.removeTraining = removeTraining;
-		
+
 		vm.testSubmit = testSubmit;
         vm.showDataDialog = showDataDialog;
         vm.submitHorizontalStepper = submitHorizontalStepper;
@@ -163,55 +248,6 @@
             });
         }
 
-		function addEducation()
-		{
-			var newEducationID = vm.educations.length;
-			vm.educations.push({id:newEducationID});
-			console.log("Add education"+newEducationID);
-			
-		}
-		function removeEducation()
-		{
-			vm.educations.pop();
-			
-		}
-		function addJob()
-		{
-			var newJobID = vm.jobs.length;
-			vm.jobs.push({id:newJobID});
-			console.log("Add job"+newJobID);
-			
-		}
-		function removeJob()
-		{
-			vm.jobs.pop();
-			
-		}
-		function addProject()
-		{
-			var newProjectID = vm.projects.length;
-			vm.projects.push({id:newProjectID});
-			
-			
-		}
-		function removeProject()
-		{
-			vm.projects.pop();
-			
-		}
-		function addTraining()
-		{
-			var id = vm.trainings.length;
-			vm.trainings.push({id:id});
-			
-			
-			
-		}
-		function removeTraining()
-		{
-			vm.trainings.pop();
-			
-		}
 		function testSubmit(){
 			console.log(vm.formWizard);
 		}
