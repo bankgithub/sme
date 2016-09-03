@@ -10,12 +10,35 @@
     var educations = [
 		{id:"0"},
 	];
+	 var jobs = [
+		{id:"0"},
+	];
+	 var trainings = [
+		{id:"0"},
+	];
+	var trainingResults = [
+			{name:"Project improved", value:"1"},
+			{name:"Job improved", value:"2"},
+			{name:"Not improved", value:"3"},
+		];
+	var projectFunctions = [
+			{name:"Leader", value:"1"},
+			{name:"Main supporter", value:"2"},
+			{name:"Supporter", value:"3"},
+		];
+	 var projects = [	
+		{id:"0"},	
+	];
 	function FormsController($mdDialog)
     {
         var vm = this;
 		
 		vm.educations = educations;
-		
+		vm.jobs = jobs;
+		vm.projects = projects;
+		vm.projectFunctions = projectFunctions;
+		vm.trainingResults = trainingResults;
+		vm.trainings = trainings;
 
         // Data
         vm.horizontalStepper = {
@@ -45,9 +68,20 @@
 
         // Methods
         vm.sendForm = sendForm;
+		
 		vm.addEducation= addEducation;
 		vm.removeEducation= removeEducation;
-		vm.submitEducation = submitEducation;
+		
+		vm.addJob= addJob;
+		vm.removeJob= removeJob;
+		
+		vm.addProject = addProject;
+		vm.removeProject = removeProject;
+		
+		vm.addTraining = addTraining;
+		vm.removeTraining = removeTraining;
+		
+		vm.testSubmit = testSubmit;
         vm.showDataDialog = showDataDialog;
         vm.submitHorizontalStepper = submitHorizontalStepper;
         vm.submitVerticalStepper = submitVerticalStepper;
@@ -141,8 +175,45 @@
 			vm.educations.pop();
 			
 		}
-		function submitEducation(){
-			console.log(vm.formWizard.educations);
+		function addJob()
+		{
+			var newJobID = vm.jobs.length;
+			vm.jobs.push({id:newJobID});
+			console.log("Add job"+newJobID);
+			
+		}
+		function removeJob()
+		{
+			vm.jobs.pop();
+			
+		}
+		function addProject()
+		{
+			var newProjectID = vm.projects.length;
+			vm.projects.push({id:newProjectID});
+			
+			
+		}
+		function removeProject()
+		{
+			vm.projects.pop();
+			
+		}
+		function addTraining()
+		{
+			var id = vm.trainings.length;
+			vm.trainings.push({id:id});
+			
+			
+			
+		}
+		function removeTraining()
+		{
+			vm.trainings.pop();
+			
+		}
+		function testSubmit(){
+			console.log(vm.formWizard);
 		}
 		
         /**

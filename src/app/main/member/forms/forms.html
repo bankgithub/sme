@@ -166,7 +166,7 @@
 
                         <md-tab-body>
                             <form name="wizardStep2" ms-form-wizard-form novalidate>
-                               <div layout="column" ng-repeat= "education in vm.educations track by $index" id="{{education.id}}" layout-gt-xs="row" flex>
+                               <div layout="column" ng-repeat= "education in vm.educations track by $index"  layout-gt-xs="row" flex>
                                     <md-input-container flex="300" flex-gt-xs="100">
                                         <input type="text" name="institute" ng-model="vm.formWizard.educations[$index].institute"
                                                placeholder="Institute">
@@ -209,7 +209,7 @@
 
 								Remove Education
 							</md-button>
-							 <md-button class="md-raised md-warn" ng-click="vm.submitEducation()">    
+							<md-button class="md-raised md-warn" ng-click="vm.testSubmit()">    
 
 								Test Submit
 							</md-button>
@@ -224,64 +224,171 @@
                                 <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep3.$valid">
                                     <i class="icon-check s16"></i>
                                 </span>
-                                <span class="ms-form-wizard-step-text">Payment Method</span>
+                                <span class="ms-form-wizard-step-text">Job Experience</span>
                             </span>
                         </md-tab-label>
                         <md-tab-body>
-                            <form name="wizardStep3" ms-form-wizard-form novalidate>
-                                <md-input-container class="md-block">
-                                    <input type="text" name="cardholder" ng-model="vm.formWizard.cardholder"
-                                           placeholder="Card Holder"
-                                           required>
-                                    <div ng-messages="wizardStep3.cardholder.$error"
-                                         role="alert">
-                                        <div ng-message="required">
-                                            <span>Card holder field is required.</span>
-                                        </div>
-                                    </div>
-                                </md-input-container>
+						
+						  <form name="wizardStep3" ms-form-wizard-form novalidate>
+                               <div layout="column" ng-repeat= "job in vm.jobs track by $index" layout-gt-xs="row" flex>
+                                    <md-input-container flex="300" flex-gt-xs="70">
+                                        <input type="text" name="company" ng-model="vm.formWizard.jobs[$index].company"
+                                               placeholder="Company">
 
-                                <div layout="column" layout-gt-xs="row">
-                                    <md-input-container flex="100" flex-gt-xs="33">
-                                        <input type="text" name="cardnumber" ng-model="vm.formWizard.cardnumber"
-                                               placeholder="Card Number"
-                                               required>
-                                        <div ng-messages="wizardStep3.cardnumber.$error"
-                                             role="alert">
-                                            <div ng-message="required">
-                                                <span>Card number field is required.</span>
-                                            </div>
-                                        </div>
                                     </md-input-container>
 
-                                    <md-input-container flex="100" flex-gt-xs="33">
-                                        <input type="text" name="CC2" ng-model="vm.formWizard.cc2"
-                                               placeholder="CC2" md-maxlength="3"
-                                               required>
-                                        <div ng-messages="wizardStep3.cc2.$error"
-                                             role="alert" multipl>
-                                            <div ng-message="required">
-                                                <span>CC2 field is required.</span>
-                                            </div>
-                                            <div ng-message="md-maxlength">
-                                                <span>CC2 can't be longer than 3 characters.</span>
-                                            </div>
-                                        </div>
+                                    <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="year" name="startyear" ng-model="vm.formWizard.jobs[$index].startyear"
+                                               placeholder="Start Year">
+                                       
                                     </md-input-container>
+									 <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="year" name="endyear" ng-model="vm.formWizard.jobs[$index].endyear"
+                                               placeholder="End Year">
+                                                                                     
+                                    </md-input-container>
+									<md-input-container flex="300" flex-gt-xs="60">
+                                        <input type="text" name="position" ng-model="vm.formWizard.jobs[$index].position"
+                                               placeholder="Position">
 
-                                    <md-input-container flex="100" flex-gt-xs="33">
-                                        <input type="text" name="expirationDate" ng-model="vm.formWizard.expirationDate"
-                                               placeholder="Expiration Date"
-                                               required>
-                                        <div ng-messages="wizardStep3.expirationDate.$error"
-                                             role="alert">
-                                            <div ng-message="required">
-                                                <span>Expiration date field is required.</span>
-                                            </div>
-                                        </div>
                                     </md-input-container>
+									<md-input-container flex="300" flex-gt-xs="60">
+                                        <input type="text" name="duty" ng-model="vm.formWizard.jobs[$index].duty"
+                                               placeholder="Main Duties">
+
+                                    </md-input-container>
+									<md-input-container flex="300" flex-gt-xs="40">
+                                        <input type="number" name="basedsalary" ng-model="vm.formWizard.jobs[$index].basedsalary"
+                                               placeholder="Base salary">
+
+                                    </md-input-container>
+									
                                 </div>
+								
                             </form>
+                          <md-button class="md-raised md-accent" ng-click="vm.addJob()">    
+
+								Add Job
+							</md-button>
+							 <md-button class="md-raised md-warn" ng-click="vm.removeJob()">    
+
+								Remove Job
+							</md-button>
+                        </md-tab-body>
+                    </md-tab>
+					 <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid"-->>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep4.$invalid">4</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep3.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text">Project Record</span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                          <form name="wizardStep4" ms-form-wizard-form novalidate>
+                               <div layout="column" ng-repeat= "project in vm.projects track by $index" layout-gt-xs="row" flex>
+                                    <md-input-container flex="300" flex-gt-xs="70">
+                                        <input type="text" name="name" ng-model="vm.formWizard.projects[$index].name"
+                                               placeholder="Project name">
+
+                                    </md-input-container>
+									<md-input-container flex="300" flex-gt-xs="40">
+										<label>Function</label>
+										<md-select ng-model="vm.formWizard.projects[$index].function">
+											<md-option ng-repeat="function in vm.projectFunctions" value="{{function.value}}">
+												{{function.name}}
+											</md-option>
+										</md-select>
+									</md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="text" name="description" ng-model="vm.formWizard.projects[$index].description"
+                                               placeholder="Description">
+                                       
+                                    </md-input-container>
+									 <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="text" name="opportunity" ng-model="vm.formWizard.projects[$index].opportunity"
+                                               placeholder="Opportunity">
+                                                                                     
+                                    </md-input-container>
+									<md-input-container flex="300" flex-gt-xs="60">
+                                        <input type="text" name="result" ng-model="vm.formWizard.projects[$index].result"
+                                               placeholder="Result">
+
+                                    </md-input-container>
+									
+									
+                                </div>
+								
+                            </form>
+                          <md-button class="md-raised md-accent" ng-click="vm.addProject()">    
+
+								Add Project
+							</md-button>
+							 <md-button class="md-raised md-warn" ng-click="vm.removeProject()">    
+
+								Remove Project
+							</md-button>
+                        </md-tab-body>
+                    </md-tab>
+					
+					<md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid"-->>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep5.$invalid">5</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep4.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text">Training Record</span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                          <form name="wizardStep5" ms-form-wizard-form novalidate>
+                               <div layout="column" ng-repeat= "training in vm.trainings track by $index" layout-gt-xs="row" flex>
+                                    <md-input-container flex="300" flex-gt-xs="70">
+                                        <input type="text" name="name" ng-model="vm.formWizard.trainings[$index].name"
+                                               placeholder="Project name">
+
+                                    </md-input-container>
+									<md-input-container flex="300" flex-gt-xs="40">
+										<label>Result</label>
+										<md-select ng-model="vm.formWizard.trainings[$index].result">
+											<md-option ng-repeat="result in vm.trainingResults" value="{{result.value}}">
+												{{result.name}}
+											</md-option>
+										</md-select>
+									</md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="text" name="description" ng-model="vm.formWizard.trainings[$index].description"
+                                               placeholder="Description">
+                                       
+                                    </md-input-container>
+									 <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="text" name="period" ng-model="vm.formWizard.trainings[$index].period"
+                                               placeholder="Period">
+                                                                                     
+                                    </md-input-container>
+									<md-input-container flex="300" flex-gt-xs="60">
+                                        <input type="number" name="cost" ng-model="vm.formWizard.trainings[$index].cost"
+                                               placeholder="Cost">
+
+                                    </md-input-container>
+									
+									
+                                </div>
+								
+                            </form>
+                          <md-button class="md-raised md-accent" ng-click="vm.addTraining()">    
+
+								Add Training
+							</md-button>
+							 <md-button class="md-raised md-warn" ng-click="vm.removeTraining()">    
+
+								Remove Training
+							</md-button>
                         </md-tab-body>
                     </md-tab>
                 </md-tabs>
