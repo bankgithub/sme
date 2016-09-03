@@ -1,0 +1,568 @@
+<div id="forms" class="page-layout simple fullwidth doc-page" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between">
+        <div layout="column" layout-align="space-between">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">Member</span>
+            </div>
+
+            <div class="title">Strategic Management</div>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content" layout="column">
+
+        <div layout="row">
+
+            <!-- FORM WIZARD -->
+            <ms-form-wizard flex>
+                <md-tabs md-dynamic-height md-selected="msWizard.selectedIndex" md-center-tabs="true">
+                    <md-tab>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep1.$invalid">1</span>
+                            <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep1.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            <span class="ms-form-wizard-step-text">SPELLT</span>
+                            </span>
+                        </md-tab-label>
+
+                        <md-tab-body>
+                            <form name="wizardStep1" class="md-inline-form" ms-form-wizard-form novalidate>
+
+
+
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab <!--ng-disabled="wizardStep1.$invalid" -->>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep2.$invalid">2</span>
+                            <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep2.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            <span class="ms-form-wizard-step-text">SWOT</span>
+                            </span>
+                        </md-tab-label>
+
+                        <md-tab-body>
+                            <form name="wizardStep2" class="md-inline-form" ms-form-wizard-form novalidate>
+                                <div class="simple-table-container md-whiteframe-4dp">
+                                    <div class="table-title">
+                                        Strength <span class="padding-left-96 " /><span class="padding-left-96 " /><span class="padding-left-96 " />
+                                        <span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 ">
+											<md-button class="md-raised md-accent " ng-click="vm.strength.addStrength()">    
+												Add 
+											</md-button>
+											<md-button class="md-raised md-warn" ng-click="vm.strength.removeStrength()">    
+												Remove
+											</md-button></span>
+                                    </div>
+
+                                    <div layout="column" ng-repeat="item in vm.strength.list track by $index" layout-gt-xs="row" flex>
+                                        <span class="padding-left-20"></span>
+                                        <md-checkbox  ng-checked="item.checked" ng-model="vm.swot.strength[$index].checked" ng-click="vm.strength.check($index)" flex="100" flex-gt-xs="20">
+
+                                        </md-checkbox>
+
+                                        <md-input-container flex="100" flex-gt-xs="70">
+                                            <input type="text" name="guideline" ng-model="vm.swot.strength[$index].guideline" placeholder="Guideline" required>
+
+                                        </md-input-container>
+
+                                        <md-input-container flex="100" flex-gt-xs="100">
+                                            <input type="text" name="factor" ng-model="vm.swot.strength[$index].factor" placeholder="Critical Factor" required>
+
+                                        </md-input-container>
+
+                                        <md-input-container flex="100" flex-gt-xs="30">
+                                            <input type="number" step="any" name="weight" ng-model="vm.swot.strength[$index].weight" placeholder="Weight" required>
+
+                                        </md-input-container>
+
+
+                                        <md-input-container flex="100" flex-gt-xs="50">
+                                            <label>Rating</label>
+                                            <md-select ng-model="vm.swot.strength[$index].rating">
+                                                <md-option ng-repeat="rating in vm.strength.ratingList" value="{{rating.value}}">
+                                                    {{rating.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+
+
+                                    </div>
+
+                                </div>
+								<!-- Weakness -->
+							<div class="padding-vertical-5"></div>
+								<div class="simple-table-container md-whiteframe-4dp">
+                                    <div class="table-title">
+                                       Weakness <span class="padding-left-96 " /><span class="padding-left-96 " /><span class="padding-left-96 " />
+                                        <span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 ">
+											<md-button class="md-raised md-accent " ng-click="vm.weakness.addWeakness()">    
+												Add 
+											</md-button>
+											<md-button class="md-raised md-warn" ng-click="vm.weakness.removeWeakness()">    
+												Remove
+											</md-button></span>
+                                    </div>
+
+                                    <div layout="column" ng-repeat="item in vm.weakness.list track by $index" layout-gt-xs="row" flex>
+                                        <span class="padding-left-20"></span>
+                                        <md-checkbox ng-checked="item.checked" ng-model="vm.swot.weakness[$index].checked" ng-click="vm.weakness.check($index)" flex="100" flex-gt-xs="20">
+
+                                        </md-checkbox>
+
+                                        <md-input-container flex="100" flex-gt-xs="70">
+                                            <input type="text" name="guideline" ng-model="vm.swot.weakness[$index].guideline" placeholder="Guideline" required>
+
+                                        </md-input-container>
+
+                                        <md-input-container flex="100" flex-gt-xs="100">
+                                            <input type="text" name="factor" ng-model="vm.swot.weakness[$index].factor" placeholder="Critical Factor" required>
+
+                                        </md-input-container>
+
+                                        <md-input-container flex="100" flex-gt-xs="30">
+                                            <input type="number"  step="any" name="weight" ng-model="vm.swot.weakness[$index].weight" placeholder="Weight" required>
+
+                                        </md-input-container>
+
+
+                                        <md-input-container flex="100" flex-gt-xs="50">
+                                            <label>Rating</label>
+                                            <md-select ng-model="vm.swot.weakness[$index].rating">
+                                                <md-option ng-repeat="rating in vm.weakness.ratingList" value="{{rating.value}}">
+                                                    {{rating.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+
+
+                                    </div>
+                                </div>
+								
+								
+								<!-- Opportunity-->
+								<div class="padding-vertical-5"></div>
+								<div class="simple-table-container md-whiteframe-4dp">
+                                    <div class="table-title">
+                                       Opportunity <span class="padding-left-96 " /><span class="padding-left-96 " /><span class="padding-left-96 " />
+                                        <span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 ">
+											<md-button class="md-raised md-accent " ng-click="vm.opportunity.addOpportunity()">    
+												Add 
+											</md-button>
+											<md-button class="md-raised md-warn" ng-click="vm.opportunity.removeOpportunity()">    
+												Remove
+											</md-button></span>
+                                    </div>
+
+                                    <div layout="column" ng-repeat="item in vm.opportunity.list track by $index" layout-gt-xs="row" flex>
+                                        <span class="padding-left-20"></span>
+                                        <md-checkbox ng-checked="item.checked" ng-model="vm.swot.opportunity[$index].checked" ng-click="vm.opportunity.check($index)" flex="100" flex-gt-xs="20">
+
+                                        </md-checkbox>
+
+                                        <md-input-container flex="100" flex-gt-xs="70">
+                                            <input type="text" name="guideline" ng-model="vm.swot.opportunity[$index].guideline" placeholder="Guideline" required>
+
+                                        </md-input-container>
+
+                                        <md-input-container flex="100" flex-gt-xs="100">
+                                            <input type="text" name="factor" ng-model="vm.swot.opportunity[$index].factor" placeholder="Critical Factor" required>
+
+                                        </md-input-container>
+
+                                        <md-input-container flex="100" flex-gt-xs="30">
+                                            <input type="number" step="any" name="weight" ng-model="vm.swot.opportunity[$index].weight" placeholder="Weight" required>
+
+                                        </md-input-container>
+
+
+                                        <md-input-container flex="100" flex-gt-xs="50">
+                                            <label>Rating</label>
+                                            <md-select ng-model="vm.swot.opportunity[$index].rating">
+                                                <md-option ng-repeat="rating in vm.opportunity.ratingList" value="{{rating.value}}">
+                                                    {{rating.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+
+
+                                    </div>
+                                </div>
+								
+								<!-- Threat -->
+								<div class="padding-vertical-5"></div>
+								<div class="simple-table-container md-whiteframe-4dp">
+                                    <div class="table-title">
+                                       Threat <span class="padding-left-96 " /><span class="padding-left-96 " /><span class="padding-left-96 " />
+                                        <span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 ">
+											<md-button class="md-raised md-accent " ng-click="vm.threat.addThreat()">    
+												Add 
+											</md-button>
+											<md-button class="md-raised md-warn" ng-click="vm.threat.removeThreat()">    
+												Remove
+											</md-button></span>
+                                    </div>
+
+                                    <div layout="column" ng-repeat="item in vm.threat.list track by $index" layout-gt-xs="row" flex>
+                                        <span class="padding-left-20"></span>
+                                        <md-checkbox ng-checked="item.checked" ng-model="vm.swot.threat[$index].checked" ng-click="vm.threat.check($index)" flex="100" flex-gt-xs="20">
+
+                                        </md-checkbox>
+
+                                        <md-input-container flex="100" flex-gt-xs="70">
+                                            <input type="text" name="guideline" ng-model="vm.swot.threat[$index].guideline" placeholder="Guideline" required>
+
+                                        </md-input-container>
+
+                                        <md-input-container flex="100" flex-gt-xs="100">
+                                            <input type="text" name="factor" ng-model="vm.swot.threat[$index].factor" placeholder="Critical Factor" required>
+
+                                        </md-input-container>
+
+                                        <md-input-container flex="100" flex-gt-xs="30">
+                                            <input type="number" step="any" name="weight" ng-model="vm.swot.threat[$index].weight" placeholder="Weight" required>
+
+                                        </md-input-container>
+
+
+                                        <md-input-container flex="100" flex-gt-xs="50">
+                                            <label>Rating</label>
+                                            <md-select ng-model="vm.swot.threat[$index].rating">
+                                                <md-option ng-repeat="rating in vm.threat.ratingList" value="{{rating.value}}">
+                                                    {{rating.name}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+
+
+                                    </div>
+                                </div>
+                            </form>
+
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid" -->>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep3.$invalid">3</span>
+                            <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep3.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            <span class="ms-form-wizard-step-text">Job Experience</span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+
+                            <form name="wizardStep3" ms-form-wizard-form novalidate>
+                                <div layout="column" ng-repeat="job in vm.jobs.list track by $index" layout-gt-xs="row" flex>
+                                    <md-input-container flex="300" flex-gt-xs="70">
+                                        <input type="text" name="company" ng-model="vm.formWizard.jobs[$index].company" placeholder="Company" required>
+
+                                    </md-input-container>
+
+                                    <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="month" name="startyear" ng-model="vm.formWizard.jobs[$index].startyear" placeholder="Start Year" required>
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="month" name="endyear" ng-model="vm.formWizard.jobs[$index].endyear" placeholder="End Year">
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="60">
+                                        <input type="text" name="position" ng-model="vm.formWizard.jobs[$index].position" placeholder="Position" required>
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="60">
+                                        <input type="text" name="duty" ng-model="vm.formWizard.jobs[$index].duty" placeholder="Main Duties">
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="40">
+                                        <input type="number" name="basedsalary" ng-model="vm.formWizard.jobs[$index].basedsalary" placeholder="Base salary">
+
+                                    </md-input-container>
+
+                                </div>
+
+                            </form>
+                            <md-button class="md-raised md-accent" ng-click="vm.jobs.addJob()">
+
+                                Add Job
+                            </md-button>
+                            <md-button class="md-raised md-warn" ng-click="vm.jobs.removeJob()">
+
+                                Remove Job
+                            </md-button>
+                        </md-tab-body>
+                    </md-tab>
+                    <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid" -->>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep4.$invalid">4</span>
+                            <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep4.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            <span class="ms-form-wizard-step-text">Project Record</span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep4" ms-form-wizard-form novalidate>
+                                <div layout="column" ng-repeat="project in vm.projects.list track by $index" layout-gt-xs="row" flex>
+                                    <md-input-container flex="300" flex-gt-xs="70">
+                                        <input type="text" name="name" ng-model="vm.formWizard.projects[$index].name" placeholder="Project name" required>
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="40">
+                                        <label>Function</label>
+                                        <md-select ng-model="vm.formWizard.projects[$index].function">
+                                            <md-option ng-repeat="function in vm.projects.projectFunctions" value="{{function.value}}">
+                                                {{function.name}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="text" name="description" ng-model="vm.formWizard.projects[$index].description" placeholder="Description">
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="text" name="opportunity" ng-model="vm.formWizard.projects[$index].opportunity" placeholder="Opportunity">
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="60">
+                                        <input type="text" name="result" ng-model="vm.formWizard.projects[$index].result" placeholder="Result">
+
+                                    </md-input-container>
+
+
+                                </div>
+
+                            </form>
+                            <md-button class="md-raised md-accent" ng-click="vm.projects.addProject()">
+
+                                Add Project
+                            </md-button>
+                            <md-button class="md-raised md-warn" ng-click="vm.removeProject()">
+
+                                Remove Project
+                            </md-button>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid" -->>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep5.$invalid">5</span>
+                            <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep5.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            <span class="ms-form-wizard-step-text">Training Record</span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep5" ms-form-wizard-form novalidate>
+                                <div layout="column" ng-repeat="training in vm.trainings.list track by $index" layout-gt-xs="row" flex>
+                                    <md-input-container flex="300" flex-gt-xs="70">
+                                        <input type="text" name="name" ng-model="vm.formWizard.trainings[$index].name" placeholder="Project name" required>
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="40">
+                                        <label>Result</label>
+                                        <md-select ng-model="vm.formWizard.trainings[$index].result">
+                                            <md-option ng-repeat="result in vm.trainings.trainingResults" value="{{result.value}}">
+                                                {{result.name}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="text" name="description" ng-model="vm.formWizard.trainings[$index].description" placeholder="Description">
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="text" name="period" ng-model="vm.formWizard.trainings[$index].period" placeholder="Period" required>
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="60">
+                                        <input type="number" name="cost" ng-model="vm.formWizard.trainings[$index].cost" placeholder="Cost">
+
+                                    </md-input-container>
+
+
+                                </div>
+
+                            </form>
+                            <md-button class="md-raised md-accent" ng-click="vm.trainings.addTraining()">
+
+                                Add Training
+                            </md-button>
+                            <md-button class="md-raised md-warn" ng-click="vm.trainings.removeTraining()">
+
+                                Remove Training
+                            </md-button>
+                        </md-tab-body>
+                    </md-tab>
+
+
+                    <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid" -->>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep6.$invalid">6</span>
+                            <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep6.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            <span class="ms-form-wizard-step-text">Skill Record</span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep6" ms-form-wizard-form novalidate>
+                                <div layout="column" ng-repeat="skill in vm.skills.list track by $index" layout-gt-xs="row" flex>
+                                    <md-input-container flex="300" flex-gt-xs="40">
+                                        <label>Skill Type</label>
+                                        <md-select ng-model="vm.formWizard.skills[$index].type" required>
+                                            <md-option ng-repeat="type in vm.skills.types" value="{{type.value}}">
+                                                {{type.name}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="70">
+                                        <input type="text" name="description" ng-model="vm.formWizard.skills[$index].description" placeholder="Description" required>
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="40">
+                                        <label>Level</label>
+                                        <md-select ng-model="vm.formWizard.skills[$index].level">
+                                            <md-option ng-repeat="level in vm.skills.levels" value="{{level.value}}">
+                                                {{level.name}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+                                    <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="date" name="assessmentDate" ng-model="vm.formWizard.skills[$index].assessmentDate" placeholder="Assessment Date">
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="60">
+                                        <input type="text" name="mentor" ng-model="vm.formWizard.skills[$index].mentor" placeholder="Mentor">
+                                    </md-input-container>
+
+
+                                </div>
+
+                            </form>
+                            <md-button class="md-raised md-accent" ng-click="vm.skills.addSkill()">
+
+                                Add Skill
+                            </md-button>
+                            <md-button class="md-raised md-warn" ng-click="vm.skills.removeSkill()">
+
+                                Remove Skill
+                            </md-button>
+                        </md-tab-body>
+                    </md-tab>
+
+
+
+                    <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid" -->>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep7.$invalid">7</span>
+                            <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep7.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                            <span class="ms-form-wizard-step-text">Performance Record</span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep7" ms-form-wizard-form novalidate>
+                                <div layout="column" ng-repeat="performance in vm.performanceRecords.list track by $index" layout-gt-xs="row" flex>
+                                    <md-input-container flex="300" flex-gt-xs="30">
+                                        <input type="year" name="year" ng-model="vm.formWizard.performanceRecords[$index].year" placeholder="Year" required>
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="70">
+                                        <input type="text" name="position" ng-model="vm.formWizard.performanceRecords[$index].position" placeholder="Description" required>
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="40">
+                                        <label>Score</label>
+                                        <md-select ng-model="vm.formWizard.performanceRecords[$index].level">
+                                            <md-option ng-repeat="level in vm.performanceRecords.levels" value="{{level.value}}">
+                                                {{level.name}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+                                    <md-input-container flex="300" flex-gt-xs="70">
+                                        <input type="text" name="feedback" ng-model="vm.formWizard.performanceRecords[$index].feedback" placeholder="Feedback">
+
+                                    </md-input-container>
+                                    <md-input-container flex="300" flex-gt-xs="60">
+                                        <input type="text" name="evaluator" ng-model="vm.formWizard.performanceRecords[$index].evaluator" placeholder="Evaluator">
+                                    </md-input-container>
+
+
+                                </div>
+
+                            </form>
+                            <md-button class="md-raised md-accent" ng-click="vm.performanceRecords.addPerformance()">
+
+                                Add Record
+                            </md-button>
+                            <md-button class="md-raised md-warn" ng-click="vm.performanceRecords.removePerformance()">
+
+                                Remove Record
+                            </md-button>
+                        </md-tab-body>
+                    </md-tab>
+
+
+                </md-tabs>
+
+                <div class="navigation" flex layout="row" layout-align="center center">
+                    <md-button class="md-raised md-accent" ng-click="msWizard.previousStep()" ng-disabled="msWizard.isFirstStep()">
+                        Previous
+                    </md-button>
+                    <div class="steps">
+                        <span ng-repeat="form in msWizard.forms" ng-class="{'selected md-accent-bg':msWizard.selectedIndex === $index}"></span>
+                    </div>
+                    <md-button class="md-raised md-accent" ng-click="msWizard.nextStep()" ng-hide="msWizard.isLastStep()" ng-disabled="msWizard.currentStepInvalid()">
+                        Next
+                    </md-button>
+                    <md-button class="md-raised md-warn" ng-click="vm.sendForm(); msWizard.resetForm();" ng-show="msWizard.isLastStep()" ng-disabled="msWizard.formsIncomplete()">
+                        Send
+                    </md-button>
+
+                </div>
+
+            </ms-form-wizard>
+            <!-- / FORM WIZARD -->
+
+        </div>
+
+
+
+
+    </div>
+
+</div>
+<!-- / CONTENT -->
+
+</div>
