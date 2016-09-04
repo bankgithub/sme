@@ -161,7 +161,7 @@
 	};	
     /** @ngInject */
 
-	function StrategicManagementController($mdDialog)
+	function StrategicManagementController($document,$mdDialog)
     {
         var vm = this;
 		
@@ -204,6 +204,7 @@
         vm.showDataDialog = showDataDialog;
         vm.submitHorizontalStepper = submitHorizontalStepper;
         vm.submitVerticalStepper = submitVerticalStepper;
+		vm.openSODialog = openSODialog;
 
         //////////
 
@@ -285,6 +286,24 @@
 		function testSubmit(){
 			console.log(vm.formWizard);
 		}
+		
+		function openSODialog(ev, task)
+        {
+            console.log("OpenTaskDialog");
+			$mdDialog.show({
+                controller         : 'TowsDialogController',
+                controllerAs       : 'vm',
+                templateUrl        : 'app/main/management/strategic/dialogs/tows/tows-dialog.html',
+                parent             : angular.element($document.body),
+                targetEvent        : ev,
+                clickOutsideToClose: true,
+                locals             : {
+                    Task : task,
+                    Tasks: vm.tasks,
+                    event: ev
+                }
+            });
+        }
 		
         /**
          * Send form

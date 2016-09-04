@@ -71,17 +71,17 @@
 
                                     <div layout="column" ng-repeat="item in vm.strength.list track by $index" layout-gt-xs="row" flex>
                                         <span class="padding-left-20"></span>
-                                        <md-checkbox  ng-checked="item.checked" ng-model="vm.swot.strength[$index].checked" ng-click="vm.strength.check($index)" flex="100" flex-gt-xs="20">
+                                        <md-checkbox  ng-checked="item.checked" ng-model="vm.swot.strength[$index].checked" ng-click="vm.strength.check($index)" flex="100" flex-gt-xs="20" />
 
-                                        </md-checkbox>
+                                        
 
                                         <md-input-container flex="100" flex-gt-xs="70">
-                                            <input type="text" name="guideline" ng-model="vm.swot.strength[$index].guideline" placeholder="Guideline" required>
+                                            <input type="text" name="guideline" ng-model="vm.swot.strength[$index].guideline" placeholder="Guideline" required />
 
                                         </md-input-container>
 
                                         <md-input-container flex="100" flex-gt-xs="100">
-                                            <input type="text" name="factor" ng-model="vm.swot.strength[$index].factor" placeholder="Critical Factor" required>
+                                            <input type="text" name="factor" ng-model="vm.swot.strength[$index].factor" placeholder="Critical Factor" required/>
 
                                         </md-input-container>
 
@@ -99,7 +99,7 @@
                                                 </md-option>
                                             </md-select>
                                         </md-input-container>
-
+										<span class="padding-left-32 " />
 
                                     </div>
 
@@ -148,7 +148,7 @@
                                                 </md-option>
                                             </md-select>
                                         </md-input-container>
-
+										<span class="padding-left-32 " />
 
                                     </div>
                                 </div>
@@ -198,7 +198,7 @@
                                                 </md-option>
                                             </md-select>
                                         </md-input-container>
-
+										<span class="padding-left-32 " />
 
                                     </div>
                                 </div>
@@ -247,7 +247,7 @@
                                                 </md-option>
                                             </md-select>
                                         </md-input-container>
-
+										<span class="padding-left-32 " />
 
                                     </div>
                                 </div>
@@ -255,7 +255,9 @@
 
                         </md-tab-body>
                     </md-tab>
-
+				<!-----------------------------------END SWOT----------------------------->
+				
+				<!-----------------------------------START TOWS---------------------------->
                     <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid" -->>
                         <md-tab-label>
                             <span class="ms-form-wizard-step-label">
@@ -264,50 +266,127 @@
                             <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep3.$valid">
                                     <i class="icon-check s16"></i>
                                 </span>
-                            <span class="ms-form-wizard-step-text">Job Experience</span>
+                            <span class="ms-form-wizard-step-text">TOWS</span>
                             </span>
                         </md-tab-label>
                         <md-tab-body>
 
-                            <form name="wizardStep3" ms-form-wizard-form novalidate>
-                                <div layout="column" ng-repeat="job in vm.jobs.list track by $index" layout-gt-xs="row" flex>
-                                    <md-input-container flex="300" flex-gt-xs="70">
-                                        <input type="text" name="company" ng-model="vm.formWizard.jobs[$index].company" placeholder="Company" required>
+                           <form name="wizardStep3" ms-form-wizard-form novalidate>
+								<div class="price-tables" flex layout="row" layout-wrap>
+									<div class="price-table style-1 md-whiteframe-0dp" layout="column"></div>
+	
+									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
+										<div class="package-type md-primary-bg" layout="row" layout-align="space-between center">
+											<span>STRENGTH</span>
+										</div>
+										<div ng-repeat="item in vm.swot.strength"> 
+																					
+											<div class=""> 
+												<span class="padding-left-20 " />
+												<md-checkbox> <h2><b>{{item.guideline}}</h2></b></md-checkbox>
+											</div>
+										</div>
+									
+									</div>
 
-                                    </md-input-container>
+									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
+										<div class="package-type md-primary-bg" layout="row">
+											<span>WEAKNESS</span>
+										</div>
 
-                                    <md-input-container flex="300" flex-gt-xs="30">
-                                        <input type="month" name="startyear" ng-model="vm.formWizard.jobs[$index].startyear" placeholder="Start Year" required>
+										<div ng-repeat="item in vm.swot.weakness"> 
+																					
+											<div class=""> 
+												<span class="padding-left-20 " />
+												<md-checkbox> <h2><b>{{item.guideline}}</h2></b></md-checkbox>
+											</div>
+										</div>
+									</div>
+								</div>
+						<!---------------------END ROW 1------------------------------------------------------>
+								<div class="price-tables" flex layout="row" layout-wrap>
+									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
+										<div class="package-type md-primary-bg">
+											<span>OPPORTUNITY</span>
+										</div>
+										<div ng-repeat="item in vm.swot.opportunity"> 										
+											<div class=""> 
+												<span class="padding-left-20 " />
+												<md-checkbox> <h2><b>{{item.guideline}}</h2></b></md-checkbox>
+											</div>
+										</div>
+									   
+									</div>
 
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="30">
-                                        <input type="month" name="endyear" ng-model="vm.formWizard.jobs[$index].endyear" placeholder="End Year">
+									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
+										<div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
+											<span>STRENGTH-OPPORTUNITY</span>
+											 <md-menu>
+												<md-button class="md-icon-button" aria-label="More" translate
+														   translate-attr-aria-label="More">
+													<md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)"></md-icon>
+												</md-button>
 
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="60">
-                                        <input type="text" name="position" ng-model="vm.formWizard.jobs[$index].position" placeholder="Position" required>
+												<md-menu-content width="3">
+													<md-menu-item>
+														<md-button ng-click="vm.openSODialog($event)">
+															<md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
+															<span>Add</span>
+															
+														</md-button>
+													</md-menu-item>
 
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="60">
-                                        <input type="text" name="duty" ng-model="vm.formWizard.jobs[$index].duty" placeholder="Main Duties">
+													
+												</md-menu-content>
+											</md-menu>
+										</div>
 
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="40">
-                                        <input type="number" name="basedsalary" ng-model="vm.formWizard.jobs[$index].basedsalary" placeholder="Base salary">
+									   
+									</div>
 
-                                    </md-input-container>
+									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
+										<div class="package-type md-blue-900-bg" layout="row">
+											<span>WEAKNESS-OPPORTUNITY</span>
+										</div>
 
-                                </div>
+									   
+									</div>
+							</div>
+							<!---------------------END ROW 2------------------------------------------------------>
+							
+							<div class="price-tables" flex layout="row" layout-wrap>
+									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
+										<div class="package-type md-primary-bg">
+											<span>THREAT</span>
+										</div>
+										<div ng-repeat="item in vm.swot.threat"> 										
+											<div class=""> 
+												<span class="padding-left-20 " />
+												<md-checkbox> <h2><b>{{item.guideline}}</h2></b></md-checkbox>
+											</div>
+										</div>
+									   
+									</div>
 
-                            </form>
-                            <md-button class="md-raised md-accent" ng-click="vm.jobs.addJob()">
+									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
+										<div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
+											<span>STRENGTH-THREAT</span>
+											
+										</div>
 
-                                Add Job
-                            </md-button>
-                            <md-button class="md-raised md-warn" ng-click="vm.jobs.removeJob()">
+									   
+									</div>
 
-                                Remove Job
-                            </md-button>
+									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
+										<div class="package-type md-blue-900-bg" layout="row">
+											<span>WEAKNESS-THREAT</span>
+										</div>
+
+									   
+									</div>
+							</div>
+							</form>
+                           
                         </md-tab-body>
                     </md-tab>
                     <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid" -->>

@@ -97,18 +97,20 @@
 
         <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
         <!-- inject:js -->
+        <script src="app/main/management/management.module.js"></script>
+        <script src="app/main/management/strategic/dialogs/tows/tows-dialog.controller.js"></script>
         <script src="app/main/pages/errors/500/error-500.module.js"></script>
         <script src="app/main/pages/errors/500/error-500.controller.js"></script>
         <script src="app/main/pages/errors/404/error-404.module.js"></script>
         <script src="app/main/pages/errors/404/error-404.controller.js"></script>
         <script src="app/main/pages/auth/reset-password/reset-password.module.js"></script>
         <script src="app/main/pages/auth/reset-password/reset-password.controller.js"></script>
+        <script src="app/main/pages/auth/login-v2/login-v2.module.js"></script>
+        <script src="app/main/pages/auth/login-v2/login-v2.controller.js"></script>
         <script src="app/main/pages/auth/register-v2/register-v2.module.js"></script>
         <script src="app/main/pages/auth/register-v2/register-v2.controller.js"></script>
         <script src="app/main/pages/auth/register/register.module.js"></script>
         <script src="app/main/pages/auth/register/register.controller.js"></script>
-        <script src="app/main/pages/auth/login-v2/login-v2.module.js"></script>
-        <script src="app/main/pages/auth/login-v2/login-v2.controller.js"></script>
         <script src="app/main/pages/auth/login/login.module.js"></script>
         <script src="app/main/pages/auth/login/login.controller.js"></script>
         <script src="app/main/pages/auth/lock/lock.module.js"></script>
@@ -119,16 +121,16 @@
         <script src="app/quick-panel/tabs/chat/chat-tab.controller.js"></script>
         <script src="app/main/pages/timeline/timeline.module.js"></script>
         <script src="app/main/pages/timeline/timeline.controller.js"></script>
-        <script src="app/main/pages/search/search.module.js"></script>
-        <script src="app/main/pages/search/search.controller.js"></script>
         <script src="app/main/pages/profile/profile.module.js"></script>
         <script src="app/main/pages/profile/profile.controller.js"></script>
-        <script src="app/main/pages/invoice/invoice.module.js"></script>
-        <script src="app/main/pages/invoice/invoice.controller.js"></script>
+        <script src="app/main/pages/search/search.module.js"></script>
+        <script src="app/main/pages/search/search.controller.js"></script>
         <script src="app/main/pages/maintenance/maintenance.module.js"></script>
         <script src="app/main/pages/maintenance/maintenance.controller.js"></script>
         <script src="app/main/pages/coming-soon/coming-soon.module.js"></script>
         <script src="app/main/pages/coming-soon/coming-soon.controller.js"></script>
+        <script src="app/main/pages/invoice/invoice.module.js"></script>
+        <script src="app/main/pages/invoice/invoice.controller.js"></script>
         <script src="app/main/member/forms/forms.module.js"></script>
         <script src="app/main/member/forms/forms.controller.js"></script>
         <script src="app/main/management/strategic/strategic.module.js"></script>
@@ -187,7 +189,6 @@
         <script src="app/index.api.js"></script>
         <script src="app/main/pages/pages.module.js"></script>
         <script src="app/main/member/member.module.js"></script>
-        <script src="app/main/management/management.module.js"></script>
         <!-- endinject -->
 
         <!-- inject:partials -->
