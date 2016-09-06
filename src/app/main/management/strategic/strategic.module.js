@@ -7,7 +7,7 @@
         .config(config);
 
     /** @ngInject */
-    function config($stateProvider)
+    function config($stateProvider, $translatePartialLoaderProvider)
     {
         $stateProvider.state('app.management_strategic', {
             url      : '/management/strategic',
@@ -19,6 +19,7 @@
             },
             bodyClass: 'stratetic'
         });
+		$translatePartialLoaderProvider.addPart('app/main/management/strategic');
     }
 
 })();

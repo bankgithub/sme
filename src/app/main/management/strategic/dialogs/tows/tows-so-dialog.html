@@ -1,0 +1,87 @@
+<md-dialog class="task-dialog" aria-label="New item">
+    <form name="taskForm" class="md-inline-form" novalidate>
+        <md-toolbar class="md-accent md-hue-2">
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                <span class="title">{{vm.title}}</span>
+                <md-button class="md-icon-button" ng-click="vm.closeDialog()">
+                    <md-icon md-font-icon="icon-close" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content ms-scroll>
+          <div class="price-tables" flex layout="row" layout-wrap>
+									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
+										<div class="package-type md-primary-bg" layout="row" layout-align="space-between center">
+											<span>STRENGTH</span>
+										</div>
+										<div ng-repeat="item in vm.swot.strength"> 
+																					
+											<div class=""> 
+												<span class="padding-left-20 " />
+												<md-checkbox ng-click="vm.solution.toggle(item.id,'s')"> <h2><b>{{item.guideline}}</h2></b></md-checkbox>
+											</div>
+										</div>
+									
+									</div>
+
+									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
+										<div class="package-type md-primary-bg" layout="row">
+											<span>OPPORTUNITY</span>
+										</div>
+
+										<div ng-repeat="item in vm.swot.opportunity"> 
+																					
+											<div class=""> 
+												<span class="padding-left-20 " />
+												<md-checkbox ng-click="vm.solution.toggle(item.id,'o')"> <h2><b>{{item.guideline}}</h2></b></md-checkbox>
+											</div>
+										</div>
+									</div>
+			</div>
+				<div class="padding-top-20"></div>
+					<div class=" md-whiteframe-1dp" layout="row">
+						<md-input-container flex="100" flex-gt-xs="95" class="padding-left-10 "  >
+						<input type="text" name="solution" ng-model="vm.solution.text" placeholder="Solution" required>
+									</md-input-container>
+					</div>
+				
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row" layout-align="space-between center">
+            <div layout="row" layout-align="start center">
+                <md-button type="submit" ng-if="!vm.newSolution" ng-click="vm.saveTask()"
+                           class="send-button md-accent md-raised"
+                           ng-disabled="taskForm.$invalid || taskForm.$pristine"
+                           aria-label="SAVE" translate="MANAGEMENT.SAVE" translate-attr-aria-label="MANAGEMENT.SAVE">
+                    SAVE
+                </md-button>
+
+                <md-button type="submit" ng-if="vm.newSolution" ng-click="vm.addNewSolution(1)"
+                           class="send-button md-accent md-raised"
+                           ng-disabled="taskForm.$invalid || taskForm.$pristine"
+                           aria-label="Add" translate="MANAGEMENT.ADD_TASK" translate-attr-aria-label="MANAGEMENT.ADD_TASK">
+                    ADD 
+                </md-button>
+
+               <!-- <md-button class="md-icon-button" aria-label="Attach file" translate
+                           translate-attr-aria-label="TODO.ATTACH_FILE">
+                    <md-icon md-font-icon="icon-paperclip"></md-icon>
+                </md-button>
+
+                <md-button class="md-icon-button" aria-label="Insert picture" translate
+                           translate-attr-aria-label="MANAGEMENT.INSERT_PICTURE">
+                    <md-icon md-font-icon="icon-file-image-box"></md-icon>
+                </md-button>-->
+            </div>
+
+            <div layout="row">
+                <md-button class="md-icon-button" ng-click="vm.deleteTask($event)" aria-label="Delete" translate
+                           translate-attr-aria-label="MANAGEMENT.DELETE">
+                    <md-icon md-font-icon="icon-delete"></md-icon>
+                    <md-tooltip><span translate="MANAGEMENT.DELETE">DELETE</span></md-tooltip>
+                </md-button>
+            </div>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

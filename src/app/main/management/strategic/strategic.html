@@ -61,7 +61,7 @@
                                     <div class="table-title">
                                         Strength <span class="padding-left-96 " /><span class="padding-left-96 " /><span class="padding-left-96 " />
                                         <span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 ">
-											<md-button class="md-raised md-accent " ng-click="vm.strength.addStrength()">    
+											<md-button  class="md-raised md-accent " ng-click="vm.strength.addStrength()">    
 												Add 
 											</md-button>
 											<md-button class="md-raised md-warn" ng-click="vm.strength.removeStrength()">    
@@ -69,9 +69,9 @@
 											</md-button></span>
                                     </div>
 
-                                    <div layout="column" ng-repeat="item in vm.strength.list track by $index" layout-gt-xs="row" flex>
+                                    <div layout="column" ng-repeat="item in vm.swot.strength track by $index" layout-gt-xs="row" flex>
                                         <span class="padding-left-20"></span>
-                                        <md-checkbox  ng-checked="item.checked" ng-model="vm.swot.strength[$index].checked" ng-click="vm.strength.check($index)" flex="100" flex-gt-xs="20" />
+                                        <md-checkbox aria-label="..." ng-checked="item.checked" ng-model="vm.swot.strength[$index].checked" ng-click="vm.strength.check($index)" flex="100" flex-gt-xs="20" />
 
                                         
 
@@ -118,9 +118,9 @@
 											</md-button></span>
                                     </div>
 
-                                    <div layout="column" ng-repeat="item in vm.weakness.list track by $index" layout-gt-xs="row" flex>
+                                    <div layout="column" ng-repeat="item in vm.swot.weakness track by $index" layout-gt-xs="row" flex>
                                         <span class="padding-left-20"></span>
-                                        <md-checkbox ng-checked="item.checked" ng-model="vm.swot.weakness[$index].checked" ng-click="vm.weakness.check($index)" flex="100" flex-gt-xs="20">
+                                        <md-checkbox aria-label="..." ng-checked="item.checked" ng-model="vm.swot.weakness[$index].checked" ng-click="vm.weakness.check($index)" flex="100" flex-gt-xs="20">
 
                                         </md-checkbox>
 
@@ -168,9 +168,9 @@
 											</md-button></span>
                                     </div>
 
-                                    <div layout="column" ng-repeat="item in vm.opportunity.list track by $index" layout-gt-xs="row" flex>
+                                    <div layout="column" ng-repeat="item in vm.swot.opportunity track by $index" layout-gt-xs="row" flex>
                                         <span class="padding-left-20"></span>
-                                        <md-checkbox ng-checked="item.checked" ng-model="vm.swot.opportunity[$index].checked" ng-click="vm.opportunity.check($index)" flex="100" flex-gt-xs="20">
+                                        <md-checkbox aria-label="..." ng-checked="item.checked" ng-model="vm.swot.opportunity[$index].checked" ng-click="vm.opportunity.check($index)" flex="100" flex-gt-xs="20">
 
                                         </md-checkbox>
 
@@ -217,9 +217,9 @@
 											</md-button></span>
                                     </div>
 
-                                    <div layout="column" ng-repeat="item in vm.threat.list track by $index" layout-gt-xs="row" flex>
+                                    <div layout="column" ng-repeat="item in vm.swot.threat track by $index" layout-gt-xs="row" flex>
                                         <span class="padding-left-20"></span>
-                                        <md-checkbox ng-checked="item.checked" ng-model="vm.swot.threat[$index].checked" ng-click="vm.threat.check($index)" flex="100" flex-gt-xs="20">
+                                        <md-checkbox aria-label="..." ng-checked="item.checked" ng-model="vm.swot.threat[$index].checked" ng-click="vm.threat.check($index)" flex="100" flex-gt-xs="20">
 
                                         </md-checkbox>
 
@@ -276,29 +276,27 @@
 									<div class="price-table style-1 md-whiteframe-0dp" layout="column"></div>
 	
 									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
-										<div class="package-type md-primary-bg" layout="row" layout-align="space-between center">
-											<span>STRENGTH</span>
+										<div class="package-type md-pink-200-bg" layout="row" layout-align="space-between center">
+											<span><b>STRENGTH</b></span>
 										</div>
 										<div ng-repeat="item in vm.swot.strength"> 
 																					
 											<div class=""> 
-												<span class="padding-left-20 " />
-												<md-checkbox> <h2><b>{{item.guideline}}</h2></b></md-checkbox>
+												<h2 ng-class="item.relatedSolutionSelected?'green-A400-fg':'grey-900-fg'" class="padding-left-20" ><b>{{($index+1) +") "+ item.guideline}}</h2></b>
 											</div>
 										</div>
 									
 									</div>
 
 									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
-										<div class="package-type md-primary-bg" layout="row">
-											<span>WEAKNESS</span>
+										<div class="package-type md-pink-200-bg" layout="row">
+											<span><b>WEAKNESS</b></span>
 										</div>
 
 										<div ng-repeat="item in vm.swot.weakness"> 
 																					
 											<div class=""> 
-												<span class="padding-left-20 " />
-												<md-checkbox> <h2><b>{{item.guideline}}</h2></b></md-checkbox>
+												<h2 ng-class="item.relatedSolutionSelected?'green-A400-fg':'grey-900-fg'" class="padding-left-20 " ><b>{{($index+1) +") "+ item.guideline}}</h2></b>
 											</div>
 										</div>
 									</div>
@@ -306,13 +304,13 @@
 						<!---------------------END ROW 1------------------------------------------------------>
 								<div class="price-tables" flex layout="row" layout-wrap>
 									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
-										<div class="package-type md-primary-bg">
-											<span>OPPORTUNITY</span>
+										<div class="package-type md-pink-200-bg">
+											<span><b>OPPORTUNITY</b></span>
 										</div>
-										<div ng-repeat="item in vm.swot.opportunity"> 										
+										<div ng-repeat="item in vm.swot.opportunity track by $index"> 										
 											<div class=""> 
-												<span class="padding-left-20 " />
-												<md-checkbox> <h2><b>{{item.guideline}}</h2></b></md-checkbox>
+												
+												<h2 ng-class="item.relatedSolutionSelected?'green-A400-fg':'grey-900-fg'"  class=" padding-left-20 " ><b>{{($index+1) +") "+ item.guideline}}</h2></b>
 											</div>
 										</div>
 									   
@@ -322,16 +320,112 @@
 										<div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
 											<span>STRENGTH-OPPORTUNITY</span>
 											 <md-menu>
-												<md-button class="md-icon-button" aria-label="More" translate
-														   translate-attr-aria-label="More">
-													<md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)"></md-icon>
-												</md-button>
+													<md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
+											
 
 												<md-menu-content width="3">
 													<md-menu-item>
-														<md-button ng-click="vm.openSODialog($event)">
+														<md-button ng-click="vm.openTOWSDialog($event,null,1)">
 															<md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
 															<span>Add</span>
+															
+														</md-button>
+													</md-menu-item>
+													
+													<md-menu-item>
+														<md-button ng-click="vm.deleteSolutions(1)">
+															<md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
+															<span>Delete</span>
+															
+														</md-button>
+													</md-menu-item>
+
+													
+												</md-menu-content>
+											</md-menu>
+										</div>
+										
+									   <div ng-repeat="item in vm.solutions | filter: {type:1}"> 										
+											<div class=""> 
+												<span class="padding-left-20 " />
+												<md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); vm.checkRelatedSwot()"><h2><b>{{item.text}}</h2></b></md-checkbox>
+											</div>
+										</div>
+										
+									</div>
+
+									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
+										<div class="package-type md-blue-900-bg" layout="row">
+											<span>WEAKNESS-OPPORTUNITY</span>
+											 <md-menu>
+												<md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
+											
+
+												<md-menu-content width="3">
+													<md-menu-item>
+														<md-button ng-click="vm.openTOWSDialog($event,null,2)">
+															<md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
+															<span>Add</span>
+															
+														</md-button>
+													</md-menu-item>
+													
+													<md-menu-item>
+														<md-button ng-click="vm.deleteSolutions(2)">
+															<md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
+															<span>Delete</span>
+															
+														</md-button>
+													</md-menu-item>
+
+													
+												</md-menu-content>
+											</md-menu>
+										</div>
+										<div ng-repeat="item in vm.solutions | filter: {type:2}"> 										
+											<div class=""> 
+												<span class="padding-left-20 " />
+												<md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); vm.checkRelatedSwot()"><h2><b>{{item.text}}</h2></b></md-checkbox>
+											</div>
+										</div>
+									   
+									</div>
+							</div>
+							<!---------------------END ROW 2------------------------------------------------------>
+							
+							<div class="price-tables" flex layout="row" layout-wrap>
+									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
+										<div class="package-type md-pink-200-bg">
+											<span><b>THREAT</b></span>
+										</div>
+										<div ng-repeat="item in vm.swot.threat"> 										
+											<div class=""> 
+												<h2 ng-class="item.relatedSolutionSelected?'green-A400-fg':'grey-900-fg'"  class="padding-left-20 " ><b>{{($index+1) +") "+ item.guideline}}</h2></b>
+											</div>
+										</div>
+									   
+									</div>
+
+									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
+										<div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
+											<span>STRENGTH-THREAT</span>
+											 <md-menu>
+													<md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
+											
+
+												<md-menu-content width="3">
+													<md-menu-item>
+														<md-button ng-click="vm.openTOWSDialog($event,null,3)">
+															<md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
+															<span>Add</span>
+															
+														</md-button>
+													</md-menu-item>
+													
+													<md-menu-item>
+														<md-button ng-click="vm.deleteSolutions(3)">
+															<md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
+															<span>Delete</span>
 															
 														</md-button>
 													</md-menu-item>
@@ -341,48 +435,49 @@
 											</md-menu>
 										</div>
 
-									   
-									</div>
-
-									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
-										<div class="package-type md-blue-900-bg" layout="row">
-											<span>WEAKNESS-OPPORTUNITY</span>
-										</div>
-
-									   
-									</div>
-							</div>
-							<!---------------------END ROW 2------------------------------------------------------>
-							
-							<div class="price-tables" flex layout="row" layout-wrap>
-									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
-										<div class="package-type md-primary-bg">
-											<span>THREAT</span>
-										</div>
-										<div ng-repeat="item in vm.swot.threat"> 										
+									   <div ng-repeat="item in vm.solutions | filter: {type:3}"> 										
 											<div class=""> 
 												<span class="padding-left-20 " />
-												<md-checkbox> <h2><b>{{item.guideline}}</h2></b></md-checkbox>
+												<md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); vm.checkRelatedSwot()"><h2><b>{{item.text}}</h2></b></md-checkbox>
 											</div>
 										</div>
-									   
 									</div>
 
 									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
 										<div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
-											<span>STRENGTH-THREAT</span>
-											
-										</div>
-
-									   
-									</div>
-
-									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
-										<div class="package-type md-blue-900-bg" layout="row">
 											<span>WEAKNESS-THREAT</span>
+											<md-menu>
+												<md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
+											
+
+												<md-menu-content width="3">
+													<md-menu-item>
+														<md-button ng-click="vm.openTOWSDialog($event,null,4)">
+															<md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
+															<span>Add</span>
+															
+														</md-button>
+													</md-menu-item>
+													
+													<md-menu-item>
+														<md-button ng-click="vm.deleteSolutions(4)">
+															<md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
+															<span>Delete</span>
+															
+														</md-button>
+													</md-menu-item>
+
+													
+												</md-menu-content>
+											</md-menu>
 										</div>
 
-									   
+									   <div ng-repeat="item in vm.solutions | filter: {type:4}"> 										
+											<div class=""> 
+												<span class="padding-left-20 " />
+												<md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); vm.checkRelatedSwot()"><h2><b>{{item.text}}</h2></b></md-checkbox>
+											</div>
+										</div>
 									</div>
 							</div>
 							</form>

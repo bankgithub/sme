@@ -6,40 +6,86 @@
         .module('app.management')
         .controller('TowsDialogController', TowsDialogController);
 
-    /** @ngInject */
-    function TowsDialogController($mdDialog, Task, Tasks, event)
+  var solution = {
+		text: "",
+		s_dependency: [],
+		w_dependency: [],
+		o_dependency: [],
+		t_dependency:[],
+		selected: false,
+		type: 0,  //1 = SO, 2 = WO, 3 = ST, 4 = WT
+		clear: function(){
+			this.text = "";
+			this.selected = false;
+			this.s_dependency = [];
+			this.w_dependency = [];
+			this.o_dependency = [];
+			this.t_dependency = [];
+		
+		},
+		toggleSelected: function(){
+			this.selected = !this.selected;
+			//console.log(this);
+		},
+		toggle: function (id,type){
+				//console.log("toggle");
+			if(type.localeCompare('s')==0){
+				var index = this.s_dependency.indexOf(id);
+				//console.log("Strength dependency");
+				
+				if(index<0){
+					this.s_dependency.push(id);
+				}else{
+					this.s_dependency.splice(index,1);
+				}
+				//console.log(this.s_dependency);
+				
+			}else if(type.localeCompare('w')==0){
+				index = this.w_dependency.indexOf(id);
+				
+				if(index<0){
+					this.w_dependency.push(id);
+				}else{
+					this.w_dependency.splice(index,1);
+				}
+			}else if(type.localeCompare('o')==0){
+				index = this.o_dependency.indexOf(id);
+				//console.log("Opportunity dependency");
+				if(index<0){
+					this.o_dependency.push(id);
+				}else{
+					this.o_dependency.splice(index);
+				}
+				//console.log(this.o_dependency);
+			}else if(type.localeCompare('t')==0){
+				index = this.t_dependency.indexOf(id);
+				if(index<0){
+					this.t_dependency.push(id);
+				}else{
+					this.t_dependency.splice(index);
+				}
+			}
+		},
+		
+	};	
+	/** @ngInject */
+    function TowsDialogController($mdDialog, Task, Tasks, Solutions, event, newSolution)
     {
         var vm = this;
 
         // Data
-        vm.title = 'Edit Task';
-        vm.task = angular.copy(Task);
-        vm.tasks = Tasks;
-        vm.newTask = false;
+        vm.title = 'New Solution';
+       // vm.swot = angular.copy(Task);
+        vm.swot = Tasks;
+        vm.newSolution = newSolution;
+		//vm.solution = angular.copy(solution);
+		vm.towsolutions = Solutions;
+		vm.solution = solution;
 
-        if ( !vm.task )
-        {
-            vm.task = {
-                'id'                : '',
-                'title'             : '',
-                'notes'             : '',
-                'startDate'         : new Date(),
-                'startDateTimeStamp': new Date().getTime(),
-                'dueDate'           : '',
-                'dueDateTimeStamp'  : '',
-                'completed'         : false,
-                'starred'           : false,
-                'important'         : false,
-                'deleted'           : false,
-                'tags'              : []
-            };
-            vm.title = 'New Task';
-            vm.newTask = true;
-            vm.task.tags = [];
-        }
+        
 
         // Methods
-        vm.addNewTask = addNewTask;
+        vm.addNewSolution = addNewSolution;
         vm.saveTask = saveTask;
         vm.deleteTask = deleteTask;
         vm.newTag = newTag;
@@ -51,10 +97,22 @@
         /**
          * Add new task
          */
-        function addNewTask()
+        function clone(obj) {
+			if (null == obj || "object" != typeof obj) return obj;
+			var copy = obj.constructor();
+			for (var attr in obj) {
+				if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+			}
+			return copy;
+}
+		function addNewSolution(type)
         {
-            vm.tasks.unshift(vm.task);
-
+           
+			vm.solution.type = type;
+			var obj = clone(vm.solution);
+			vm.towsolutions.unshift(obj);
+			vm.solution.clear();
+			console.log("Solution added");
             closeDialog();
         }
 
