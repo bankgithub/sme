@@ -31,6 +31,7 @@
         "TO_DO": "To-Do",
         "SELECT_PROJECT": "Select Project",
         "ADD_TASK": "ADD",
+		"ADD": "ADD",
         "ALL_TASKS": "All Tasks",
         "STARRED": "Starred",
         "PRIORITY": "Priority",
