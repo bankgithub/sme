@@ -73,7 +73,7 @@
                                         <span class="padding-left-20"></span>
                                         <md-checkbox aria-label="..." ng-checked="item.checked" ng-model="vm.swot.strength[$index].checked" ng-click="vm.strength.check($index)" flex="100" flex-gt-xs="20" />
 
-                                        
+
 
                                         <md-input-container flex="100" flex-gt-xs="70">
                                             <input type="text" name="guideline" ng-model="vm.swot.strength[$index].guideline" placeholder="Guideline" required />
@@ -99,16 +99,16 @@
                                                 </md-option>
                                             </md-select>
                                         </md-input-container>
-										<span class="padding-left-32 " />
+                                        <span class="padding-left-32 " />
 
                                     </div>
 
                                 </div>
-								<!-- Weakness -->
-							<div class="padding-vertical-5"></div>
-								<div class="simple-table-container md-whiteframe-4dp">
+                                <!-- Weakness -->
+                                <div class="padding-vertical-5"></div>
+                                <div class="simple-table-container md-whiteframe-4dp">
                                     <div class="table-title">
-                                       Weakness <span class="padding-left-96 " /><span class="padding-left-96 " /><span class="padding-left-96 " />
+                                        Weakness <span class="padding-left-96 " /><span class="padding-left-96 " /><span class="padding-left-96 " />
                                         <span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 ">
 											<md-button class="md-raised md-accent " ng-click="vm.weakness.addWeakness()">    
 												Add 
@@ -135,7 +135,7 @@
                                         </md-input-container>
 
                                         <md-input-container flex="100" flex-gt-xs="30">
-                                            <input type="number"  step="any" name="weight" ng-model="vm.swot.weakness[$index].weight" placeholder="Weight" required>
+                                            <input type="number" step="any" name="weight" ng-model="vm.swot.weakness[$index].weight" placeholder="Weight" required>
 
                                         </md-input-container>
 
@@ -148,17 +148,17 @@
                                                 </md-option>
                                             </md-select>
                                         </md-input-container>
-										<span class="padding-left-32 " />
+                                        <span class="padding-left-32 " />
 
                                     </div>
                                 </div>
-								
-								
-								<!-- Opportunity-->
-								<div class="padding-vertical-5"></div>
-								<div class="simple-table-container md-whiteframe-4dp">
+
+
+                                <!-- Opportunity-->
+                                <div class="padding-vertical-5"></div>
+                                <div class="simple-table-container md-whiteframe-4dp">
                                     <div class="table-title">
-                                       Opportunity <span class="padding-left-96 " /><span class="padding-left-96 " /><span class="padding-left-96 " />
+                                        Opportunity <span class="padding-left-96 " /><span class="padding-left-96 " /><span class="padding-left-96 " />
                                         <span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 ">
 											<md-button class="md-raised md-accent " ng-click="vm.opportunity.addOpportunity()">    
 												Add 
@@ -198,16 +198,16 @@
                                                 </md-option>
                                             </md-select>
                                         </md-input-container>
-										<span class="padding-left-32 " />
+                                        <span class="padding-left-32 " />
 
                                     </div>
                                 </div>
-								
-								<!-- Threat -->
-								<div class="padding-vertical-5"></div>
-								<div class="simple-table-container md-whiteframe-4dp">
+
+                                <!-- Threat -->
+                                <div class="padding-vertical-5"></div>
+                                <div class="simple-table-container md-whiteframe-4dp">
                                     <div class="table-title">
-                                       Threat <span class="padding-left-96 " /><span class="padding-left-96 " /><span class="padding-left-96 " />
+                                        Threat <span class="padding-left-96 " /><span class="padding-left-96 " /><span class="padding-left-96 " />
                                         <span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 "><span class="padding-left-96 ">
 											<md-button class="md-raised md-accent " ng-click="vm.threat.addThreat()">    
 												Add 
@@ -247,7 +247,7 @@
                                                 </md-option>
                                             </md-select>
                                         </md-input-container>
-										<span class="padding-left-32 " />
+                                        <span class="padding-left-32 " />
 
                                     </div>
                                 </div>
@@ -255,9 +255,9 @@
 
                         </md-tab-body>
                     </md-tab>
-				<!-----------------------------------END SWOT----------------------------->
-				
-				<!-----------------------------------START TOWS---------------------------->
+                    <!-----------------------------------END SWOT----------------------------->
+
+                    <!-----------------------------------START TOWS---------------------------->
                     <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid" -->>
                         <md-tab-label>
                             <span class="ms-form-wizard-step-label">
@@ -271,442 +271,282 @@
                         </md-tab-label>
                         <md-tab-body>
 
-                           <form name="wizardStep3" ms-form-wizard-form novalidate>
-								<div class="price-tables" flex layout="row" layout-wrap>
-									<div class="price-table style-1 md-whiteframe-0dp" layout="column"></div>
-	
-									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
-										<div class="package-type md-pink-200-bg" layout="row" layout-align="space-between center">
-											<span><b>STRENGTH</b></span>
-										</div>
-										<div ng-repeat="item in vm.swot.strength"> 
-																					
-											<div class=""> 
-												<h2 ng-class="item.relatedSolutionSelected?'green-A400-fg':'grey-900-fg'" class="padding-left-20" ><b>{{($index+1) +") "+ item.guideline}}</h2></b>
-											</div>
-										</div>
-									
-									</div>
+                            <form name="wizardStep3" ms-form-wizard-form novalidate>
+                                <div class="price-tables" flex layout="row" layout-wrap>
+                                    <div class="price-table style-1 md-whiteframe-0dp" layout="column"></div>
 
-									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
-										<div class="package-type md-pink-200-bg" layout="row">
-											<span><b>WEAKNESS</b></span>
-										</div>
+                                    <div class="price-table style-1 md-whiteframe-1dp" layout="column">
+                                        <div class="package-type md-pink-200-bg" layout="row" layout-align="space-between center">
+                                            <span><b>STRENGTH</b></span>
+                                        </div>
+                                        <div ng-repeat="item in vm.swot.strength">
 
-										<div ng-repeat="item in vm.swot.weakness"> 
-																					
-											<div class=""> 
-												<h2 ng-class="item.relatedSolutionSelected?'green-A400-fg':'grey-900-fg'" class="padding-left-20 " ><b>{{($index+1) +") "+ item.guideline}}</h2></b>
-											</div>
-										</div>
-									</div>
-								</div>
-						<!---------------------END ROW 1------------------------------------------------------>
-								<div class="price-tables" flex layout="row" layout-wrap>
-									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
-										<div class="package-type md-pink-200-bg">
-											<span><b>OPPORTUNITY</b></span>
-										</div>
-										<div ng-repeat="item in vm.swot.opportunity track by $index"> 										
-											<div class=""> 
-												
-												<h2 ng-class="item.relatedSolutionSelected?'green-A400-fg':'grey-900-fg'"  class=" padding-left-20 " ><b>{{($index+1) +") "+ item.guideline}}</h2></b>
-											</div>
-										</div>
-									   
-									</div>
+                                            <div class="">
+                                                <h2 ng-class="item.relatedSolutionSelected?'green-A400-fg':'grey-900-fg'" class="padding-left-20"><b>{{($index+1) +") "+ item.guideline}}</h2>
+                                                </b>
+                                            </div>
+                                        </div>
 
-									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
-										<div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
-											<span>STRENGTH-OPPORTUNITY</span>
-											 <md-menu>
-													<md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
-											
+                                    </div>
 
-												<md-menu-content width="3">
-													<md-menu-item>
-														<md-button ng-click="vm.openTOWSDialog($event,null,1)">
-															<md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
-															<span>Add</span>
-															
-														</md-button>
-													</md-menu-item>
-													
-													<md-menu-item>
-														<md-button ng-click="vm.deleteSolutions(1)">
-															<md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
-															<span>Delete</span>
-															
-														</md-button>
-													</md-menu-item>
+                                    <div class="price-table style-1 md-whiteframe-1dp" layout="column">
+                                        <div class="package-type md-pink-200-bg" layout="row">
+                                            <span><b>WEAKNESS</b></span>
+                                        </div>
 
-													
-												</md-menu-content>
-											</md-menu>
-										</div>
-										
-									   <div ng-repeat="item in vm.solutions | filter: {type:1}"> 										
-											<div class=""> 
-												<span class="padding-left-20 " />
-												<md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); vm.checkRelatedSwot()"><h2><b>{{item.text}}</h2></b></md-checkbox>
-											</div>
-										</div>
-										
-									</div>
+                                        <div ng-repeat="item in vm.swot.weakness">
 
-									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
-										<div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
-											<span>WEAKNESS-OPPORTUNITY</span>
-											 <md-menu>
-												<md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
-											
+                                            <div class="">
+                                                <h2 ng-class="item.relatedSolutionSelected?'green-A400-fg':'grey-900-fg'" class="padding-left-20 "><b>{{($index+1) +") "+ item.guideline}}</h2>
+                                                </b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---------------------END ROW 1------------------------------------------------------>
+                                <div class="price-tables" flex layout="row" layout-wrap>
+                                    <div class="price-table style-1 md-whiteframe-1dp" layout="column">
+                                        <div class="package-type md-pink-200-bg">
+                                            <span><b>OPPORTUNITY</b></span>
+                                        </div>
+                                        <div ng-repeat="item in vm.swot.opportunity track by $index">
+                                            <div class="">
 
-												<md-menu-content width="3">
-													<md-menu-item>
-														<md-button ng-click="vm.openTOWSDialog($event,null,2)">
-															<md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
-															<span>Add</span>
-															
-														</md-button>
-													</md-menu-item>
-													
-													<md-menu-item>
-														<md-button ng-click="vm.deleteSolutions(2)">
-															<md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
-															<span>Delete</span>
-															
-														</md-button>
-													</md-menu-item>
+                                                <h2 ng-class="item.relatedSolutionSelected?'green-A400-fg':'grey-900-fg'" class=" padding-left-20 "><b>{{($index+1) +") "+ item.guideline}}</h2>
+                                                </b>
+                                            </div>
+                                        </div>
 
-													
-												</md-menu-content>
-											</md-menu>
-										</div>
-										<div ng-repeat="item in vm.solutions | filter: {type:2}"> 										
-											<div class=""> 
-												<span class="padding-left-20 " />
-												<md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); vm.checkRelatedSwot()"><h2><b>{{item.text}}</h2></b></md-checkbox>
-											</div>
-										</div>
-									   
-									</div>
-							</div>
-							<!---------------------END ROW 2------------------------------------------------------>
-							
-							<div class="price-tables" flex layout="row" layout-wrap>
-									<div class="price-table style-1 md-whiteframe-1dp" layout="column">
-										<div class="package-type md-pink-200-bg">
-											<span><b>THREAT</b></span>
-										</div>
-										<div ng-repeat="item in vm.swot.threat"> 										
-											<div class=""> 
-												<h2 ng-class="item.relatedSolutionSelected?'green-A400-fg':'grey-900-fg'"  class="padding-left-20 " ><b>{{($index+1) +") "+ item.guideline}}</h2></b>
-											</div>
-										</div>
-									   
-									</div>
+                                    </div>
 
-									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
-										<div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
-											<span>STRENGTH-THREAT</span>
-											 <md-menu>
-													<md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
-											
+                                    <div class="price-table style-1 md-whiteframe-8dp" layout="column">
+                                        <div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
+                                            <span>STRENGTH-OPPORTUNITY</span>
+                                            <md-menu>
+                                                <md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
 
-												<md-menu-content width="3">
-													<md-menu-item>
-														<md-button ng-click="vm.openTOWSDialog($event,null,3)">
-															<md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
-															<span>Add</span>
-															
-														</md-button>
-													</md-menu-item>
-													
-													<md-menu-item>
-														<md-button ng-click="vm.deleteSolutions(3)">
-															<md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
-															<span>Delete</span>
-															
-														</md-button>
-													</md-menu-item>
 
-													
-												</md-menu-content>
-											</md-menu>
-										</div>
+                                                <md-menu-content width="3">
+                                                    <md-menu-item>
+                                                        <md-button ng-click="vm.openTOWSDialog($event,null,1)">
+                                                            <md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
+                                                            <span>Add</span>
 
-									   <div ng-repeat="item in vm.solutions | filter: {type:3}"> 										
-											<div class=""> 
-												<span class="padding-left-20 " />
-												<md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); vm.checkRelatedSwot()"><h2><b>{{item.text}}</h2></b></md-checkbox>
-											</div>
-										</div>
-									</div>
+                                                        </md-button>
+                                                    </md-menu-item>
 
-									<div class="price-table style-1 md-whiteframe-8dp" layout="column">
-										<div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
-											<span>WEAKNESS-THREAT</span>
+                                                    <md-menu-item>
+                                                        <md-button ng-click="vm.deleteSolutions(1)">
+                                                            <md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
+                                                            <span>Delete</span>
+
+                                                        </md-button>
+                                                    </md-menu-item>
+
+
+                                                </md-menu-content>
+                                            </md-menu>
+                                        </div>
+
+                                        <div ng-repeat="item in vm.solutions | filter: {type:1}">
+                                            <div class="">
+                                                <span class="padding-left-20 " />
+                                                <md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); vm.checkRelatedSwot()">
+                                                    <h2><b>{{item.text}}</h2>
+                                                    </b>
+                                                </md-checkbox>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="price-table style-1 md-whiteframe-8dp" layout="column">
+                                        <div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
+                                            <span>WEAKNESS-OPPORTUNITY</span>
+                                            <md-menu>
+                                                <md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
+
+
+                                                <md-menu-content width="3">
+                                                    <md-menu-item>
+                                                        <md-button ng-click="vm.openTOWSDialog($event,null,2)">
+                                                            <md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
+                                                            <span>Add</span>
+
+                                                        </md-button>
+                                                    </md-menu-item>
+
+                                                    <md-menu-item>
+                                                        <md-button ng-click="vm.deleteSolutions(2)">
+                                                            <md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
+                                                            <span>Delete</span>
+
+                                                        </md-button>
+                                                    </md-menu-item>
+
+
+                                                </md-menu-content>
+                                            </md-menu>
+                                        </div>
+                                        <div ng-repeat="item in vm.solutions | filter: {type:2}">
+                                            <div class="">
+                                                <span class="padding-left-20 " />
+                                                <md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); vm.checkRelatedSwot()">
+                                                    <h2><b>{{item.text}}</h2>
+                                                    </b>
+                                                </md-checkbox>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!---------------------END ROW 2------------------------------------------------------>
+
+                                <div class="price-tables" flex layout="row" layout-wrap>
+                                    <div class="price-table style-1 md-whiteframe-1dp" layout="column">
+                                        <div class="package-type md-pink-200-bg">
+                                            <span><b>THREAT</b></span>
+                                        </div>
+                                        <div ng-repeat="item in vm.swot.threat">
+                                            <div class="">
+                                                <h2 ng-class="item.relatedSolutionSelected?'green-A400-fg':'grey-900-fg'" class="padding-left-20 "><b>{{($index+1) +") "+ item.guideline}}</h2>
+                                                </b>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="price-table style-1 md-whiteframe-8dp" layout="column">
+                                        <div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
+                                            <span>STRENGTH-THREAT</span>
+                                            <md-menu>
+                                                <md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
+
+
+                                                <md-menu-content width="3">
+                                                    <md-menu-item>
+                                                        <md-button ng-click="vm.openTOWSDialog($event,null,3)">
+                                                            <md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
+                                                            <span>Add</span>
+
+                                                        </md-button>
+                                                    </md-menu-item>
+
+                                                    <md-menu-item>
+                                                        <md-button ng-click="vm.deleteSolutions(3)">
+                                                            <md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
+                                                            <span>Delete</span>
+
+                                                        </md-button>
+                                                    </md-menu-item>
+
+
+                                                </md-menu-content>
+                                            </md-menu>
+                                        </div>
+
+                                        <div ng-repeat="item in vm.solutions | filter: {type:3}">
+                                            <div class="">
+                                                <span class="padding-left-20 " />
+                                                <md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); vm.checkRelatedSwot()">
+                                                    <h2><b>{{item.text}}</h2>
+                                                    </b>
+                                                </md-checkbox>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="price-table style-1 md-whiteframe-8dp" layout="column">
+                                        <div class="package-type md-blue-900-bg" layout="row" layout-align="space-between center">
+                                            <span>WEAKNESS-THREAT</span>
+                                            <md-menu>
+                                                <md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
+
+
+                                                <md-menu-content width="3">
+                                                    <md-menu-item>
+                                                        <md-button ng-click="vm.openTOWSDialog($event,null,4)">
+                                                            <md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
+                                                            <span>Add</span>
+
+                                                        </md-button>
+                                                    </md-menu-item>
+
+                                                    <md-menu-item>
+                                                        <md-button ng-click="vm.deleteSolutions(4)">
+                                                            <md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
+                                                            <span>Delete</span>
+
+                                                        </md-button>
+                                                    </md-menu-item>
+
+
+                                                </md-menu-content>
+                                            </md-menu>
+                                        </div>
+
+                                        <div ng-repeat="item in vm.solutions | filter: {type:4}">
+                                            <div class="">
+                                                <span class="padding-left-20 " />
+                                                <md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); vm.checkRelatedSwot()">
+                                                    <h2><b>{{item.text}}</h2>
+                                                    </b>
+                                                </md-checkbox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+                                <div class="price-tables" flex layout="row" layout-wrap >
+                                    <div class="price-table style-1 md-whiteframe-1dp"  layout="column" flex="85" >
+                                        <div class="package-type md-green-500-bg">
+                                            <span><b>Cooperate Strategies</b></span>
 											<md-menu>
-												<md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
-											
+                                            <md-icon md-font-icon="icon-dots-vertical" ng-click="$mdOpenMenu($event)" style="cursor:pointer"></md-icon>
 
-												<md-menu-content width="3">
-													<md-menu-item>
-														<md-button ng-click="vm.openTOWSDialog($event,null,4)">
-															<md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
-															<span>Add</span>
-															
-														</md-button>
-													</md-menu-item>
-													
-													<md-menu-item>
-														<md-button ng-click="vm.deleteSolutions(4)">
-															<md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
-															<span>Delete</span>
-															
-														</md-button>
-													</md-menu-item>
 
-													
-												</md-menu-content>
-											</md-menu>
+                                            <md-menu-content width="3">
+                                                <md-menu-item>
+                                                    <md-button ng-click="vm.openTOWSDialog($event,null,5)">
+                                                        <md-icon ng-class="blue-bg" md-font-icon="icon-plus-circle" class="s18"></md-icon>
+                                                        <span>Add</span>
+
+                                                    </md-button>
+                                                </md-menu-item>
+
+                                                <md-menu-item>
+                                                    <md-button ng-click="vm.deleteSolutions(5)">
+                                                        <md-icon ng-class="blue-bg" md-font-icon="icon-cancel" class="s18"></md-icon>
+                                                        <span>Delete</span>
+
+                                                    </md-button>
+                                                </md-menu-item>
+
+
+                                            </md-menu-content>
+                                        </md-menu>
 										</div>
+                                         <div ng-repeat="item in vm.solutions | filter: {type:5}">
+                                            <div class="">
+                                                <span class="padding-left-20 " />
+                                                <md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); ">
+                                                    <h2><b>{{item.text}}</h2>
+                                                    </b>
+                                                </md-checkbox>
+                                            </div>
+                                        </div>
 
-									   <div ng-repeat="item in vm.solutions | filter: {type:4}"> 										
-											<div class=""> 
-												<span class="padding-left-20 " />
-												<md-checkbox ng-checked="item.selected" ng-click="item.toggleSelected(); vm.checkRelatedSwot()"><h2><b>{{item.text}}</h2></b></md-checkbox>
-											</div>
-										</div>
-									</div>
-							</div>
-							</form>
-                           
-                        </md-tab-body>
-                    </md-tab>
-                    <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid" -->>
-                        <md-tab-label>
-                            <span class="ms-form-wizard-step-label">
-                                <span class="ms-form-wizard-step-number md-accent-bg"
-                                      ng-if="wizardStep4.$invalid">4</span>
-                            <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep4.$valid">
-                                    <i class="icon-check s16"></i>
-                                </span>
-                            <span class="ms-form-wizard-step-text">Project Record</span>
-                            </span>
-                        </md-tab-label>
-                        <md-tab-body>
-                            <form name="wizardStep4" ms-form-wizard-form novalidate>
-                                <div layout="column" ng-repeat="project in vm.projects.list track by $index" layout-gt-xs="row" flex>
-                                    <md-input-container flex="300" flex-gt-xs="70">
-                                        <input type="text" name="name" ng-model="vm.formWizard.projects[$index].name" placeholder="Project name" required>
-
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="40">
-                                        <label>Function</label>
-                                        <md-select ng-model="vm.formWizard.projects[$index].function">
-                                            <md-option ng-repeat="function in vm.projects.projectFunctions" value="{{function.value}}">
-                                                {{function.name}}
-                                            </md-option>
-                                        </md-select>
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="30">
-                                        <input type="text" name="description" ng-model="vm.formWizard.projects[$index].description" placeholder="Description">
-
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="30">
-                                        <input type="text" name="opportunity" ng-model="vm.formWizard.projects[$index].opportunity" placeholder="Opportunity">
-
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="60">
-                                        <input type="text" name="result" ng-model="vm.formWizard.projects[$index].result" placeholder="Result">
-
-                                    </md-input-container>
-
-
+                                    </div>
+                                   
                                 </div>
+								
 
                             </form>
-                            <md-button class="md-raised md-accent" ng-click="vm.projects.addProject()">
 
-                                Add Project
-                            </md-button>
-                            <md-button class="md-raised md-warn" ng-click="vm.removeProject()">
-
-                                Remove Project
-                            </md-button>
                         </md-tab-body>
                     </md-tab>
-
-                    <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid" -->>
-                        <md-tab-label>
-                            <span class="ms-form-wizard-step-label">
-                                <span class="ms-form-wizard-step-number md-accent-bg"
-                                      ng-if="wizardStep5.$invalid">5</span>
-                            <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep5.$valid">
-                                    <i class="icon-check s16"></i>
-                                </span>
-                            <span class="ms-form-wizard-step-text">Training Record</span>
-                            </span>
-                        </md-tab-label>
-                        <md-tab-body>
-                            <form name="wizardStep5" ms-form-wizard-form novalidate>
-                                <div layout="column" ng-repeat="training in vm.trainings.list track by $index" layout-gt-xs="row" flex>
-                                    <md-input-container flex="300" flex-gt-xs="70">
-                                        <input type="text" name="name" ng-model="vm.formWizard.trainings[$index].name" placeholder="Project name" required>
-
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="40">
-                                        <label>Result</label>
-                                        <md-select ng-model="vm.formWizard.trainings[$index].result">
-                                            <md-option ng-repeat="result in vm.trainings.trainingResults" value="{{result.value}}">
-                                                {{result.name}}
-                                            </md-option>
-                                        </md-select>
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="30">
-                                        <input type="text" name="description" ng-model="vm.formWizard.trainings[$index].description" placeholder="Description">
-
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="30">
-                                        <input type="text" name="period" ng-model="vm.formWizard.trainings[$index].period" placeholder="Period" required>
-
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="60">
-                                        <input type="number" name="cost" ng-model="vm.formWizard.trainings[$index].cost" placeholder="Cost">
-
-                                    </md-input-container>
-
-
-                                </div>
-
-                            </form>
-                            <md-button class="md-raised md-accent" ng-click="vm.trainings.addTraining()">
-
-                                Add Training
-                            </md-button>
-                            <md-button class="md-raised md-warn" ng-click="vm.trainings.removeTraining()">
-
-                                Remove Training
-                            </md-button>
-                        </md-tab-body>
-                    </md-tab>
-
-
-                    <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid" -->>
-                        <md-tab-label>
-                            <span class="ms-form-wizard-step-label">
-                                <span class="ms-form-wizard-step-number md-accent-bg"
-                                      ng-if="wizardStep6.$invalid">6</span>
-                            <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep6.$valid">
-                                    <i class="icon-check s16"></i>
-                                </span>
-                            <span class="ms-form-wizard-step-text">Skill Record</span>
-                            </span>
-                        </md-tab-label>
-                        <md-tab-body>
-                            <form name="wizardStep6" ms-form-wizard-form novalidate>
-                                <div layout="column" ng-repeat="skill in vm.skills.list track by $index" layout-gt-xs="row" flex>
-                                    <md-input-container flex="300" flex-gt-xs="40">
-                                        <label>Skill Type</label>
-                                        <md-select ng-model="vm.formWizard.skills[$index].type" required>
-                                            <md-option ng-repeat="type in vm.skills.types" value="{{type.value}}">
-                                                {{type.name}}
-                                            </md-option>
-                                        </md-select>
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="70">
-                                        <input type="text" name="description" ng-model="vm.formWizard.skills[$index].description" placeholder="Description" required>
-
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="40">
-                                        <label>Level</label>
-                                        <md-select ng-model="vm.formWizard.skills[$index].level">
-                                            <md-option ng-repeat="level in vm.skills.levels" value="{{level.value}}">
-                                                {{level.name}}
-                                            </md-option>
-                                        </md-select>
-                                    </md-input-container>
-
-                                    <md-input-container flex="300" flex-gt-xs="30">
-                                        <input type="date" name="assessmentDate" ng-model="vm.formWizard.skills[$index].assessmentDate" placeholder="Assessment Date">
-
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="60">
-                                        <input type="text" name="mentor" ng-model="vm.formWizard.skills[$index].mentor" placeholder="Mentor">
-                                    </md-input-container>
-
-
-                                </div>
-
-                            </form>
-                            <md-button class="md-raised md-accent" ng-click="vm.skills.addSkill()">
-
-                                Add Skill
-                            </md-button>
-                            <md-button class="md-raised md-warn" ng-click="vm.skills.removeSkill()">
-
-                                Remove Skill
-                            </md-button>
-                        </md-tab-body>
-                    </md-tab>
-
-
-
-                    <md-tab <!--ng-disabled="wizardStep1.$invalid || wizardStep2.$invalid" -->>
-                        <md-tab-label>
-                            <span class="ms-form-wizard-step-label">
-                                <span class="ms-form-wizard-step-number md-accent-bg"
-                                      ng-if="wizardStep7.$invalid">7</span>
-                            <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep7.$valid">
-                                    <i class="icon-check s16"></i>
-                                </span>
-                            <span class="ms-form-wizard-step-text">Performance Record</span>
-                            </span>
-                        </md-tab-label>
-                        <md-tab-body>
-                            <form name="wizardStep7" ms-form-wizard-form novalidate>
-                                <div layout="column" ng-repeat="performance in vm.performanceRecords.list track by $index" layout-gt-xs="row" flex>
-                                    <md-input-container flex="300" flex-gt-xs="30">
-                                        <input type="year" name="year" ng-model="vm.formWizard.performanceRecords[$index].year" placeholder="Year" required>
-
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="70">
-                                        <input type="text" name="position" ng-model="vm.formWizard.performanceRecords[$index].position" placeholder="Description" required>
-
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="40">
-                                        <label>Score</label>
-                                        <md-select ng-model="vm.formWizard.performanceRecords[$index].level">
-                                            <md-option ng-repeat="level in vm.performanceRecords.levels" value="{{level.value}}">
-                                                {{level.name}}
-                                            </md-option>
-                                        </md-select>
-                                    </md-input-container>
-
-                                    <md-input-container flex="300" flex-gt-xs="70">
-                                        <input type="text" name="feedback" ng-model="vm.formWizard.performanceRecords[$index].feedback" placeholder="Feedback">
-
-                                    </md-input-container>
-                                    <md-input-container flex="300" flex-gt-xs="60">
-                                        <input type="text" name="evaluator" ng-model="vm.formWizard.performanceRecords[$index].evaluator" placeholder="Evaluator">
-                                    </md-input-container>
-
-
-                                </div>
-
-                            </form>
-                            <md-button class="md-raised md-accent" ng-click="vm.performanceRecords.addPerformance()">
-
-                                Add Record
-                            </md-button>
-                            <md-button class="md-raised md-warn" ng-click="vm.performanceRecords.removePerformance()">
-
-                                Remove Record
-                            </md-button>
-                        </md-tab-body>
-                    </md-tab>
-
+                    
 
                 </md-tabs>
 

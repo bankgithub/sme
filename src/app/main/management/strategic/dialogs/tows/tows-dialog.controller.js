@@ -13,7 +13,7 @@
 		o_dependency: [],
 		t_dependency:[],
 		selected: false,
-		type: 0,  //1 = SO, 2 = WO, 3 = ST, 4 = WT
+		type: 0,  //1 = SO, 2 = WO, 3 = ST, 4 = WT, 5 = Cooperate
 		clear: function(){
 			this.text = "";
 			this.selected = false;

@@ -440,6 +440,9 @@
 				case 4:
 					template = 'app/main/management/strategic/dialogs/tows/tows-wt-dialog.html';
 					break;
+				case 5:
+					template = 'app/main/management/strategic/dialogs/tows/tows-co-dialog.html';
+					break;
 				default:
 					template = '';
 			}
